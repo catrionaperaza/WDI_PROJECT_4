@@ -6,6 +6,25 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
       <div className="form-group">
         <input
           type="text"
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+          value={user.name}
+          className="form-control"
+        />
+      <div className="form-group">
+        <input
+          type="text"
+          name="address"
+          placeholder="address"
+          onChange={handleChange}
+          value={user.address}
+          className="form-control"
+          />
+        </div>
+      <div className="form-group">
+        <input
+          type="text"
           name="username"
           placeholder="Username"
           onChange={handleChange}
@@ -25,7 +44,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
       </div>
       <div className="form-group">
         <input
-          type="password"
+          type="text"
           name="password"
           placeholder="Password"
           onChange={handleChange}
@@ -35,7 +54,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
       </div>
       <div className="form-group">
         <input
-          type="password"
+          type="text"
           name="passwordConfirmation"
           placeholder="Confirm Password"
           onChange={handleChange}
@@ -43,7 +62,26 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="form-control"
         />
       </div>
-
+      <div className="form-group">
+        <input
+          type="text"
+          name="image"
+          placeholder="image link"
+          onChange={handleChange}
+          value={user.image}
+          className="form-control"
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          name="bio"
+          placeholder="bio"
+          onChange={handleChange}
+          value={user.bio}
+          className="form-control"
+        />
+      </div>
       <button className="btn btn-primary">Login</button>
     </form>
   );

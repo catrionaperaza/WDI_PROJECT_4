@@ -7,10 +7,16 @@ import Auth from '../../lib/Auth';
 class Register extends React.Component {
   state = {
     user: {
+      name: '',
       username: '',
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      image: '',
+      lat: 'Number',
+      lng: 'Number',
+      place_id: '',
+      bio: ''
     }
   };
 
