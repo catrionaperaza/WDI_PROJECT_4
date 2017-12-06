@@ -23,7 +23,7 @@ class DinnersShow extends React.Component {
           <img src={this.state.dinner.image} className="img-responsive" />
         </div>
         <div className="col-md-6">
-          <h2>Event: {this.state.dinner.name}</h2>
+          <h2>Event: {this.state.dinner.title}</h2>
           <h3>Number of places: {this.state.dinner.avail_places}</h3>
           <p>Description: {this.state.dinner.description}</p>
           <h3>Host: {this.state.dinner.createdBy}TBC</h3>

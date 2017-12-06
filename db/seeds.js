@@ -29,7 +29,7 @@ User
       .create([{
         title: 'Wednesday Night Dinner Bonanza',
         formatted_address: '114 Whitechapel High Street London, E1 7PT',
-        image: 'https://images.unsplash.com/photo-1454046931706-e0f055de21d8?auto=format&fit=crop&w=2700&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
+        image: 'https://images.unsplash.com/photo-1505932049984-db368d92fa63?auto=format&fit=crop&w=976&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
         avail_places: '3',
         description: 'Midweek food binge!',
         createdBy: users[0]
