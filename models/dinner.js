@@ -6,6 +6,7 @@ const dinnerSchema = mongoose.Schema({
   address: {type: String, required: true },
   lat: { type: Number },
   lng: { type: Number },
+  formatted_address: { type: String, required: true },
   place_id: { type: String },
   avail_places: { type: Number, required: true },
   description: { type: String, required: true },
@@ -17,4 +18,4 @@ dinnerSchema.methods.belongsTo = function dinnerBelongTo(user) {
   return user.id === this.createdBy.toString();
 };
 
-module.exports = mongoose.model('dinner', dinnerSchema);
+module.exports = mongoose.model('Dinner', dinnerSchema);
