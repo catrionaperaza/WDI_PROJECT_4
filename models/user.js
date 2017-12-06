@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  image: { type: String, required: true },
-  lat: { type: Number },
-  lng: { type: Number },
-  place_id: { type: String },
-  bio: { type: String, required: true }
+  password: { type: String, required: true }
+  // image: { type: String, required: true },
+  // lat: { type: Number },
+  // lng: { type: Number },
+  // place_id: { type: String },
+  // // bio: { type: String, required: true }
 });
 
 userSchema
