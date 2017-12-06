@@ -16,5 +16,5 @@ const Dinner = require('../models/dinner');
 Dinner.collection.drop();
 
 User.create = [{
-  
-}]
+
+}];
