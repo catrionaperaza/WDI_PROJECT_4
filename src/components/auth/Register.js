@@ -8,14 +8,12 @@ class Register extends React.Component {
   state = {
     user: {
       name: '',
+      formatted_address: '',
       username: '',
       email: '',
       password: '',
       passwordConfirmation: '',
       image: '',
-      lat: 'Number',
-      lng: 'Number',
-      place_id: '',
       bio: ''
     }
   };
