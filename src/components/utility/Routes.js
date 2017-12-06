@@ -7,6 +7,7 @@ import Register from '../auth/Register';
 import DinnersIndex from '../dinners/DinnersIndex';
 import DinnersShow from '../dinners/DinnersShow';
 import DinnersNew from '../dinners/DinnersNew';
+import DinnersEdit from '../dinners/DinnersEdit';
 
 import ProtectedRoute from './ProtectedRoute';
 
@@ -17,6 +18,7 @@ const Routes = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={DinnersIndex} />
       <ProtectedRoute exact path="/dinners/new" component={DinnersNew} />
+      <ProtectedRoute exact path="/dinners/:id/edit" component={DinnersEdit} />
       <Route path="/dinners/:id" component={DinnersShow} />
     </Switch>
   );
