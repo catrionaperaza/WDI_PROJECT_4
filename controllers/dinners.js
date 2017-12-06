@@ -1,4 +1,4 @@
-const Dinner = require('../models/Dinner');
+const Dinner = require('../models/dinner');
 
 function dinnersIndex(req, res, next) {
   Dinner

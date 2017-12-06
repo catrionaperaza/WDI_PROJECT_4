@@ -11,19 +11,20 @@ router.route('/login')
   .post(auth.login);
 
 router.route('/users')
-  .get(users.index);
+  .get(secureRoute, users.index);
 
 router.route('/users/:id')
-  .get(users.show)
+  .get(secureRoute, users.show)
   .put(secureRoute, users.update)
   .delete(secureRoute, users.delete);
 
 router.route('/dinners')
-  .get(dinners.index)
+  .get(secureRoute, dinners.index)
+  .post(secureRoute, dinners.create)
   .post(secureRoute, dinners.create);
 
 router.route('/dinners/:id')
-  .get(dinners.show)
+  .get(secureRoute, dinners.show)
   .put(secureRoute, dinners.update)
   .delete(secureRoute, dinners.delete);
 
