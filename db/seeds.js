@@ -14,9 +14,14 @@ Dinner.collection.drop();
 
 User
   .create([{
+    name: 'Janis',
+    formatted_address: '1 Commercial Street London, E1 6BF',
+    username: 'Janis',
     email: 'janis@janis.com',
     password: 'password',
-    passwordConfirmation: 'password'
+    passwordConfirmation: 'password',
+    image: 'http://www.catster.com/wp-content/uploads/2015/06/cat-happy-eyes-shutterstock_73519210.jpg',
+    bio: 'cool cat cool dinners'
   }])
   .then((users)=> {
     console.log(`${users.length} users created`);
@@ -27,7 +32,7 @@ User
         image: 'https://images.unsplash.com/photo-1454046931706-e0f055de21d8?auto=format&fit=crop&w=2700&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
         avail_places: '3',
         description: 'Midweek food binge!',
-        createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'}
+        createdBy: users[0]
       }]);
   })
   .then((dinner) => {
