@@ -12,16 +12,17 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.name}
           className="form-control"
         />
+      </div>
       <div className="form-group">
         <input
           type="text"
-          name="address"
+          name="formatted_address"
           placeholder="address"
           onChange={handleChange}
-          value={user.address}
+          value={user.formatted_address}
           className="form-control"
-          />
-        </div>
+        />
+      </div>
       <div className="form-group">
         <input
           type="text"
@@ -82,7 +83,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="form-control"
         />
       </div>
-      <button className="btn btn-primary">Login</button>
+      <button className="btn btn-primary">Register</button>
     </form>
   );
 };
