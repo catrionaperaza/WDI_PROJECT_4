@@ -33,7 +33,22 @@ User
         avail_places: '3',
         description: 'Midweek food binge!',
         createdBy: users[0]
-      }]);
+      },{
+        title: 'Thirsty and hungry Thursdays',
+        formatted_address: '116 White High Street London, E1 6PT',
+        image: 'https://images.unsplash.com/photo-1460306855393-0410f61241c7?auto=format&fit=crop&w=1652&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
+        avail_places: '2',
+        description: 'Practically the weekend',
+        createdBy: users[0]
+      },{
+        title: 'Afterwork feast',
+        formatted_address: '100 High Street London, E1 8PT',
+        image: 'https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?auto=format&fit=crop&w=668&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
+        avail_places: '4',
+        description: 'Weekend!',
+        createdBy: users[0]
+      }
+      ]);
   })
   .then((dinner) => {
     console.log(`${dinner.length} dinner created!`);
