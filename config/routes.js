@@ -19,7 +19,7 @@ router.route('/users/:id')
   .delete(secureRoute, users.delete);
 
 router.route('/dinners')
-  .get(secureRoute, dinners.index)
+  .get(dinners.index)
   .post(secureRoute, dinners.create)
   .post(secureRoute, dinners.create);
 
