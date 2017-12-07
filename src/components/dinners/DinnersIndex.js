@@ -38,6 +38,7 @@ class DinnersIndex extends React.Component {
                 <h3>Number of places: {dinner.avail_places}</h3>
                 <p>Description: {dinner.description}</p>
                 <h3>Host: {this.state.dinner && this.state.dinner.user.createdBy}TBC</h3>
+                <GoogleMap center={this.state.center} />
               </div>
             );
           })}
@@ -49,16 +50,3 @@ class DinnersIndex extends React.Component {
 
 
 export default DinnersIndex;
-
-
-
-
-state = {
-    center: { lat: 52.3755, lng: -2.317 }
-  };
-
-  render() {
-    return (
-      <GoogleMap center={this.state.center} />
-    );
-  }
