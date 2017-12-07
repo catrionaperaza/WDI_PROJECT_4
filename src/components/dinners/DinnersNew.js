@@ -22,9 +22,9 @@ class DinnersNew extends React.Component {
     this.setState({ dinner });
   }
 
-  handleLocationChange = (name, address, location, website) => {
-    const bar = Object.assign({}, this.state.bar, { name, address, location, website });
-    this.setState({ bar });
+  handleLocationChange = (name, formatted_address, location) => {
+    const dinner = Object.assign({}, this.state.dinner, { name, formatted_address, location });
+    this.setState({ dinner });
   }
 
   handleSubmit =(e) => {
@@ -44,6 +44,7 @@ class DinnersNew extends React.Component {
       <DinnersForm
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
+        handleLocationChange={this.handleLocationChange}
         dinner={this.state.dinner}
       />
     );

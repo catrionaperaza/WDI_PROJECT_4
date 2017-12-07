@@ -24,14 +24,6 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
         <div className="form-group">
           <label>Address</label>
           <AutoComplete handleChange={handleLocationChange} />
-          <input
-            type="text"
-            className="form-control"
-            id="formatted-address"
-            name="formatted-address"
-            value={dinner.formatted_address}
-            onChange={handleChange}
-          />
         </div>
         <div className="form-group">
           <input

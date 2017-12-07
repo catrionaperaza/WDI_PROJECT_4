@@ -22,6 +22,7 @@ router.route('/dinners')
   .get(dinners.index)
   .post(secureRoute, dinners.create);
 
+
 router.route('/dinners/:id')
   .get(dinners.show)
   .put(secureRoute, dinners.update)
