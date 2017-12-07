@@ -1,12 +1,12 @@
 import React from 'react';
 
-import BackButton from '../utility/BackButton';
+// import BackButton from '../utility/BackButton';
 
 function DinnersForm({ handleSubmit, handleChange, dinner}) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
-        <BackButton history={history} />
+        {/* <BackButton history={history} /> */}
       </div>
       <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
