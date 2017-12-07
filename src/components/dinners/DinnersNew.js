@@ -9,17 +9,16 @@ class DinnersNew extends React.Component {
   state = {
     dinner: {
       title: '',
-      address: '',
+      formatted_address: '',
       image: '',
       // place_id: '',
-      avail_places: 'Number',
+      avail_places: '',
       description: ''
-      // createdBy: user
     }
   };
 
   handleChange = ({ target: { name, value }}) => {
-    const dinner = Object.assign({}, this.state.food, { [name]: value });
+    const dinner = Object.assign({}, this.state.dinner, { [name]: value });
     this.setState({ dinner });
   }
 

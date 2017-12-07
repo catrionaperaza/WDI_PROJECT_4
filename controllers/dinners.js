@@ -1,8 +1,9 @@
 const Dinner = require('../models/dinner');
 
 function dinnersIndex(req, res, next) {
-  Dinner
+  Dinner.find()
     .find()
+    .populate('createdBy')
     .exec()
     .then(dinners => res.json(dinners))
     .catch(next);
