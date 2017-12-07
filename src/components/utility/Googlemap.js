@@ -13,17 +13,21 @@ class GoogleMap extends React.Component {
       disableDefaultUI: true,
       styles: mapStyles
     });
+  }
 
-    this.marker = new google.maps.Marker({
-      map: this.map,
-      position: this.props.center || { lat: 51.51, lng: -0.09 },
-      animation: google.maps.Animation.DROP
+  componentDidUpdate() {
+    this.markers = this.props.dinners.map(dinner => {
+      return new google.maps.Marker({
+        map: this.map,
+        position: dinner.location,
+        animation: google.maps.Animation.DROP
+      });
     });
   }
 
   componentWillUnmount() {
-    this.marker.setMap(null);
-    this.marker = null;
+    this.markers.forEach(marker => marker.setMap(null));
+    this.markers = [];
     this.map = null;
   }
 

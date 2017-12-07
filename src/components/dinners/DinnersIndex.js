@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // import GoogleMap from '../external-api/GoogleMap';
 import Auth from '../../lib/Auth';
 
+import GoogleMap from '../utility/GoogleMap';
+
 class DinnersIndex extends React.Component {
 
   state = {
@@ -28,6 +30,7 @@ class DinnersIndex extends React.Component {
               Create Dinner Event
             </Link>}
           </div>
+          <GoogleMap dinners={this.state.dinners} />
           {this.state.dinners.map(dinner => {
             return(
               <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">

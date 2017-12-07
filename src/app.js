@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './components/utility/Routes';
+import './scss/style.scss';
 
 class App extends React.Component {
 
