@@ -36,7 +36,7 @@ class DinnersIndex extends React.Component {
                   <h2>Event: {dinner.title}</h2></Link>
                 <h3>Number of places: {dinner.avail_places}</h3>
                 <p>Description: {dinner.description}</p>
-                <h3>Host: {this.state.dinner && this.state.dinner.user.createdBy}TBC</h3>
+                {dinner.createdBy && <h3>Host: {dinner.createdBy.username}</h3>}
                 {/* <GoogleMap center={this.state.center} /> */}
               </div>
             );

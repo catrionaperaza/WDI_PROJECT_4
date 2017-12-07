@@ -11,6 +11,7 @@ function dinnersIndex(req, res, next) {
 
 function dinnersCreate(req, res, next) {
 
+  req.body.createdBy = req.currentUser;
   if(req.file) req.body.image = req.file.filename;
 
   Dinner
