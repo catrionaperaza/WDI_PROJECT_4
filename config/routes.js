@@ -19,14 +19,14 @@ router.route('/users/:id')
   .delete(secureRoute, users.delete);
 
 router.route('/dinners')
-  .get(secureRoute, dinners.index)
-  .post(secureRoute, dinners.create)
+  .get(dinners.index)
   .post(secureRoute, dinners.create);
 
+
 router.route('/dinners/:id')
-  .get(secureRoute, dinners.show)
+  .get(dinners.show)
   .put(secureRoute, dinners.update)
-  .delete(secureRoute, dinners.delete);
+  .delete(dinners.delete);
 
 router.all('/*', (req, res) => res.notFound());
 

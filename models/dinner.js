@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const dinnerSchema = mongoose.Schema({
   title: { type: String, required: true },
   image: { type: String, required: true },
-  lat: { type: Number },
-  lng: { type: Number },
+  location: { lat: Number, lng: Number },
   formatted_address: { type: String, required: true },
   place_id: { type: String },
   avail_places: { type: Number, required: true },
   description: { type: String, required: true },
-  createdBy: { type: mongoose.Schema.ObjectId}
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 
 dinnerSchema.methods.belongsTo = function dinnerBelongTo(user) {

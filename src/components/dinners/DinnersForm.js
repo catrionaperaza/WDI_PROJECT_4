@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BackButton from '../utility/BackButton';
-import AutoComplete from '../utility/BackButton';
+import AutoComplete from '../utility/AutoComplete';
 
 function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}) {
   return (
@@ -24,14 +24,6 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
         <div className="form-group">
           <label>Address</label>
           <AutoComplete handleChange={handleLocationChange} />
-          <input
-            type="text"
-            className="form-control"
-            id="formatted-address"
-            name="formatted-address"
-            value={dinner.formatted_address}
-            onChange={handleChange}
-          />
         </div>
         <div className="form-group">
           <input
@@ -62,17 +54,6 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
             id="description"
             name="description"
             value={dinner.description}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="createdBy">Host: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="createdBy"
-            name="createdBy"
-            value={dinner.createdBy}
             onChange={handleChange}
           />
         </div>

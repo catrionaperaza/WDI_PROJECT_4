@@ -9,23 +9,23 @@ class DinnersNew extends React.Component {
   state = {
     dinner: {
       title: '',
-      address: '',
+      formatted_address: '',
       image: '',
       // place_id: '',
-      avail_places: 'Number',
+      avail_places: '',
       description: ''
       // createdBy: user
     }
   };
 
   handleChange = ({ target: { name, value }}) => {
-    const dinner = Object.assign({}, this.state.food, { [name]: value });
+    const dinner = Object.assign({}, this.state.dinner, { [name]: value });
     this.setState({ dinner });
   }
 
-  handleLocationChange = (name, address, location, website) => {
-    const bar = Object.assign({}, this.state.bar, { name, address, location, website });
-    this.setState({ bar });
+  handleLocationChange = (name, formatted_address, location) => {
+    const dinner = Object.assign({}, this.state.dinner, { name, formatted_address, location });
+    this.setState({ dinner });
   }
 
   handleSubmit =(e) => {
@@ -45,6 +45,7 @@ class DinnersNew extends React.Component {
       <DinnersForm
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
+        handleLocationChange={this.handleLocationChange}
         dinner={this.state.dinner}
       />
     );
