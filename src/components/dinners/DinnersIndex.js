@@ -6,10 +6,12 @@ import GoogleMap from './components/GoogleMap';
 import Auth from '../../lib/Auth';
 
 class DinnersIndex extends React.Component {
+
   state = {
     dinners: []
     center: { lat: 52.3755, lng: -2.317 }
   }
+
 
   componentDidMount() {
     Axios
@@ -31,9 +33,11 @@ class DinnersIndex extends React.Component {
           {this.state.dinners.map(dinner => {
             return(
               <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-                <Link to={`/dinners/${dinner.id}`}>
-                  <img src={dinner.image} className="img-responsive" />
-                </Link>
+                <Link to={`/dinners/${dinner.id}`}></Link>
+                <h2>Event: {dinner.title}</h2>
+                <h3>Number of places: {dinner.avail_places}</h3>
+                <p>Description: {dinner.description}</p>
+                <h3>Host: {this.state.dinner && this.state.dinner.user.createdBy}TBC</h3>
               </div>
             );
           })}
