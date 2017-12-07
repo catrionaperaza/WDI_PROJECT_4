@@ -65,6 +65,17 @@ function DinnersForm({ handleSubmit, handleChange, dinner}) {
         </div>
         <div className="form-group">
           <label htmlFor="createdBy">Host: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="createdBy"
+            name="createdBy"
+            value={dinner.createdBy}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button className="save-button">Save</button>
         </div>
       </form>
     </div>

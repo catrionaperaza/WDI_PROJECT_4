@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import DinnersForm from '../../../src/components/dinners/DinnersForm';
 
 describe('DinnersForm tests', () => {
-  it('should render two input fields and one select', done => {
+  it('should render five input fields and one select', done => {
     const props = {
       dinner: {
         title: '',
@@ -18,7 +18,7 @@ describe('DinnersForm tests', () => {
     };
 
     const wrapper = shallow(<DinnersForm {...props} />);
-    expect(wrapper.find('input').length).to.equal(2);
+    expect(wrapper.find('input').length).to.equal(5);
     expect(wrapper.find('select').length).to.equal(1);
     done();
   });
@@ -57,7 +57,7 @@ describe('DinnersForm tests', () => {
         title: 'Title is required',
         image: 'Image is required',
         formatted_address: 'formatted_address is required',
-        avail_places: 'formatted_address is required',
+        avail_places: 'avail_places is required',
         description: 'description is required'
       }
     };
