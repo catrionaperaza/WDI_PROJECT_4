@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import Auth from '../../lib/Auth';
+import GoogleMap from '../external-api/GoogleMap';
 
 class DinnersIndex extends React.Component {
 
@@ -22,24 +22,7 @@ class DinnersIndex extends React.Component {
   render() {
     return (
       <div>
-        <div className="row">
-          {/* <div className="page-banner col-md-12">
-            { Auth.isAuthenticated() && <Link to="/dinners/new" className="main-button">
-              Create Dinner Event
-            </Link>} */}
-          {/* </div> */}
-          {this.state.dinners.map(dinner => {
-            return(
-              <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-                <Link to={`/dinners/${dinner.id}`}></Link>
-                <h2>Event: {dinner.title}</h2>
-                <h3>Number of places: {dinner.avail_places}</h3>
-                <p>Description: {dinner.description}</p>
-                <h3>Host: {this.state.dinner && this.state.dinner.user.createdBy}TBC</h3>
-              </div>
-            );
-          })}
-        </div>
+        <GoogleMap center={ this.state.center } />
       </div>
     );
   }

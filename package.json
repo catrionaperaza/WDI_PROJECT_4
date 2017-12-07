@@ -12,7 +12,6 @@
     "seed": "node db/seeds",
     "test:client": "node_modules/.bin/_mocha test/client/helper \"test/client/**/*_test.js\"",
     "test:server": "node_modules/.bin/_mocha \"test/api/**/*_test.js\"",
-    "test": "yarn test:server && yarn test:client",
     "test": "nyc mocha"
   },
   "dependencies": {
@@ -21,6 +20,7 @@
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "express-jwt": "^5.3.0",
+    "google-maps-react": "^1.1.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.11.12",
     "mongoose-unique-validator": "^1.0.6",
