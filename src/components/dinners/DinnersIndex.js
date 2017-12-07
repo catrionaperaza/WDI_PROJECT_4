@@ -49,23 +49,3 @@ class DinnersIndex extends React.Component {
 
 
 export default DinnersIndex;
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-export default DinnersIndex;
-=======
-
-
-
-state = {
-    center: { lat: 52.3755, lng: -2.317 }
-  };
-
-  render() {
-    return (
-      <GoogleMap center={this.state.center} />
-    );
-  }
->>>>>>> frontend
-=======
->>>>>>> frontend
