@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import GoogleMap from './components/GoogleMap';
 
 import Auth from '../../lib/Auth';
 
@@ -8,6 +9,7 @@ class DinnersIndex extends React.Component {
 
   state = {
     dinners: []
+    center: { lat: 52.3755, lng: -2.317 }
   }
 
 
@@ -43,8 +45,24 @@ class DinnersIndex extends React.Component {
       </div>
     );
   }
-
-
 }
 
+
 export default DinnersIndex;
+
+<<<<<<< HEAD
+export default DinnersIndex;
+=======
+
+
+
+state = {
+    center: { lat: 52.3755, lng: -2.317 }
+  };
+
+  render() {
+    return (
+      <GoogleMap center={this.state.center} />
+    );
+  }
+>>>>>>> frontend
