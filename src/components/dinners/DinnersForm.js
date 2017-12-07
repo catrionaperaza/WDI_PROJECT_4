@@ -1,12 +1,13 @@
 import React from 'react';
 
-// import BackButton from '../utility/BackButton';
+import BackButton from '../utility/BackButton';
+import AutoComplete from '../utility/BackButton';
 
-function DinnersForm({ handleSubmit, handleChange, dinner}) {
+function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
-        {/* <BackButton history={history} /> */}
+        <BackButton history={history} />
       </div>
       <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
@@ -21,7 +22,8 @@ function DinnersForm({ handleSubmit, handleChange, dinner}) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="formatted-address">Address</label>
+          <label>Address</label>
+          <AutoComplete handleChange={handleLocationChange} />
           <input
             type="text"
             className="form-control"
