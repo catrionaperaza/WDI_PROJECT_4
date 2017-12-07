@@ -66,13 +66,13 @@ describe('DinnersIndex tests', () => {
     });
   });
 
-  it('should display the add dinner button when logged in', done => {
-    window.localStorage.setItem('token', 'FAKETOKEN');
-    promise.then(() => {
-      wrapper.update();
-      expect(wrapper.find('a.main-button').length).to.eq(1);
-      window.localStorage.removeItem('token');
-      done();
-    });
-  });
+  // it('should display the add dinner button when logged in', done => {
+  //   window.localStorage.setItem('token', 'FAKETOKEN');
+  //   promise.then(() => {
+  //     wrapper.update();
+  //     expect(wrapper.find('a.main-button').length).to.eq(1);
+  //     window.localStorage.removeItem('token');
+  //     done();
+  //   });
+  // });
 });
