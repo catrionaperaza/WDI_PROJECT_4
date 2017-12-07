@@ -27,7 +27,7 @@ function DinnersForm({ handleSubmit, handleChange, dinner}) {
             className="form-control"
             id="formatted-address"
             name="formatted-address"
-            value={dinner.address}
+            value={dinner.formatted_address}
             onChange={handleChange}
           />
         </div>
