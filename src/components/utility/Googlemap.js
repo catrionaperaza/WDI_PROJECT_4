@@ -2,6 +2,7 @@
 
 import React from 'react';
 import mapStyles from '../config/mapStyles';
+import { InfoWindow } from 'react-google-maps';
 
 class GoogleMap extends React.Component {
 
@@ -16,7 +17,9 @@ class GoogleMap extends React.Component {
   }
 
   componentDidUpdate() {
-    this.markers = this.props.dinners.map(dinner => {
+    this.InfoWindow = new google.maps.InfoWindow;
+    this.markers =
+    this.props.dinners.map(dinner => {
       return new google.maps.Marker({
         map: this.map,
         position: dinner.location,
