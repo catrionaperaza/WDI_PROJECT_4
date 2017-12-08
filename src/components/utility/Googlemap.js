@@ -2,7 +2,6 @@
 
 import React from 'react';
 import mapStyles from '../config/mapStyles';
-import { InfoWindow } from 'react-google-maps';
 
 class GoogleMap extends React.Component {
 
@@ -14,18 +13,34 @@ class GoogleMap extends React.Component {
       disableDefaultUI: true,
       styles: mapStyles
     });
+
+    this.infoWindow = new google.maps.InfoWindow();
+    this.bounds = new google.maps.LatLngBounds();
   }
 
+
   componentDidUpdate() {
-    this.InfoWindow = new google.maps.InfoWindow;
-    this.markers =
-    this.props.dinners.map(dinner => {
-      return new google.maps.Marker({
+    this.markers = this.props.dinners.map(dinner => {
+      const marker = new google.maps.Marker({
         map: this.map,
         position: dinner.location,
         animation: google.maps.Animation.DROP
       });
+
+      this.bounds.extend(dinner.location);
+
+      marker.addListener('click', () => {
+        this.infoWindow.setContent(`
+          <a href=${`/dinners/${dinner.id}`} />
+          <h2>${dinner.title}</h2>
+        `);
+        this.infoWindow.open(this.map, marker);
+      });
+
+      return marker;
     });
+
+    this.map.fitBounds(this.bounds);
   }
 
   componentWillUnmount() {
