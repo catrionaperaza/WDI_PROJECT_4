@@ -83,7 +83,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="form-control"
         />
       </div>
-      <button className="btn btn-primary">Register</button>
+      <button className="btn btn-primary">Submit</button>
     </form>
   );
 };

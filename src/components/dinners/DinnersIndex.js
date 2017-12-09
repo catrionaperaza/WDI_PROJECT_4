@@ -13,17 +13,12 @@ class DinnersIndex extends React.Component {
 
   }
 
-
   componentDidMount() {
     Axios
       .get('/api/dinners')
       .then(res => this.setState({ dinners: res.data }))
       .catch(err => console.log(err));
   }
-
-  
-
-
 
   render() {
     return (

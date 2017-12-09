@@ -11,7 +11,7 @@ class DinnersEdit extends React.Component {
       formatted_address: '',
       image: '',
       // place_id: '',
-      avail_places: 'Number',
+      avail_places: '',
       description: ''
       // createdBy: user
     }
