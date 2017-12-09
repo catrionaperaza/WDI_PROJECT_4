@@ -15,12 +15,13 @@ Dinner.collection.drop();
 User
   .create([{
     name: 'Janis',
-    formatted_address: '1 Commercial Street London, E1 6BF',
+    formatted_address: '29 Islington High St, London N1 9LH',
     username: 'Janis',
     email: 'janis@janis.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: 'http://www.catster.com/wp-content/uploads/2015/06/cat-happy-eyes-shutterstock_73519210.jpg',
+    location: { lat: '51.532903', lng: '-0.10638410000001386' },
     bio: 'cool cat cool dinners'
   }])
   .then((users)=> {

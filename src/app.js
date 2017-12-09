@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './components/utility/Routes';
+import Navbar from './components/utility/Navbar';
+
 import './scss/style.scss';
 
 class App extends React.Component {
@@ -16,6 +18,7 @@ class App extends React.Component {
           </header>
           <main>
             <Routes />
+            <Navbar />
           </main>
         </div>
       </Router>

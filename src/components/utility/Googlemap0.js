@@ -20,20 +20,21 @@ class GoogleMap extends React.Component {
 
 
   componentDidUpdate() {
-    this.markers = this.props.dinners.map(dinner => {
+    this.markers =
+    this.props.users.map(user => {
       const Marker = new google.maps.Marker({
         map: this.map,
-        position: dinner.location,
+        position: user.location,
         animation: google.maps.Animation.DROP
       });
 
-      this.bounds.extend(dinner.location);
+      this.bounds.extend(user.location);
 
       Marker.addListener('click', () => {
         this.infoWindow.setContent(`
-          <a href=${`/dinners/${dinner.id}`} />
-          <h2>${dinner.title}</h2>
-        `);
+          <a href=${`/users/${user.id}`} />
+          <h2>${user.name}</h2>
+          `);
         this.infoWindow.open(this.map, Marker);
       });
 
@@ -48,7 +49,6 @@ class GoogleMap extends React.Component {
     this.markers = [];
     this.map = null;
   }
-
 
   render() {
     return (

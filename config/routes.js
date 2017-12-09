@@ -11,10 +11,10 @@ router.route('/login')
   .post(auth.login);
 
 router.route('/users')
-  .get(secureRoute, users.index);
+  .get(users.index);
 
 router.route('/users/:id')
-  .get(secureRoute, users.show)
+  .get(users.show)
   .put(secureRoute, users.update)
   .delete(secureRoute, users.delete);
 

@@ -9,8 +9,6 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   image: { type: String, required: true },
-  lat: { type: Number },
-  lng: { type: Number },
   place_id: { type: String },
   bio: { type: String, required: true }
 });
