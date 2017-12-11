@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../lib/Auth';
-import BackButton from '../utility/BackButton';
 
 class UsersShow extends React.Component {
   state = {
@@ -36,7 +35,6 @@ class UsersShow extends React.Component {
             <h3>Location: {this.state.user.formatted_address}</h3>
             <p>Bio: {this.state.user.bio}</p>
             <h3>Contact Details: {this.state.user.email}</h3>
-            <BackButton />
             { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
             </Link>}
             {' '}

@@ -36,7 +36,7 @@ class DinnersEdit extends React.Component {
       .put(`/api/dinners/${this.props.match.params.id}`, this.state.dinner, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
       })
-      .then(res=> this.props.history.push(`/dinner/${res.data.id}`))
+      .then(res=> this.props.history.push(`/dinners/${res.data.id}`))
       .catch(err=> console.log(err));
   }
 

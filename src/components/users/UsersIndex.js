@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import GoogleMap from '../utility/GoogleMap0';
-import Auth from '../../lib/Auth';
 
 class UsersIndex extends React.Component {
 

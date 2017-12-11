@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 
 import Auth from '../../lib/Auth';
-import RegisterForm from '../auth/RegisterForm';
+import UsersForm from './UsersForm';
 
 class UsersEdit extends React.Component {
   state = {
@@ -12,7 +12,6 @@ class UsersEdit extends React.Component {
       username: '',
       email: '',
       password: '',
-      passwordConfirmation: '',
       image: '',
       bio: ''
     }
@@ -37,13 +36,13 @@ class UsersEdit extends React.Component {
       .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
       })
-      .then(res=> this.props.history.push(`/user/${res.data.id}`))
-      .catch(err=> console.log(err));
+      .then(res => this.props.history.push(`/users/${res.data.id}`))
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <RegisterForm
+      <UsersForm
         history={this.props.history}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 import Auth from '../../lib/Auth';
+import BackButton from '../utility/BackButton';
 
 const Navbar = ({ history }) => {
 
@@ -19,6 +20,7 @@ const Navbar = ({ history }) => {
       { !Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
       {' '}
       { Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
+      <BackButton />
     </nav>
   );
 };
