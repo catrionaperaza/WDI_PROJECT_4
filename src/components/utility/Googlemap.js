@@ -5,56 +5,96 @@ import mapStyles from '../config/mapStyles';
 
 class GoogleMap extends React.Component {
 
+  bounds = new google.maps.LatLngBounds();
+
   componentDidMount() {
     this.map = new google.maps.Map(this.mapCanvas, {
-      center: this.props.center || { lat: 51.51, lng: -0.09 },
-      zoom: 14,
+      center: this.props.center || { lat: 51.515419, lng: -0.141099 },
+      zoom: 12,
       clickableIcons: false,
-      disableDefaultUI: true,
+      // disableDefaultUI: true,
       styles: mapStyles
     });
 
-    this.infoWindow = new google.maps.InfoWindow();
-    this.bounds = new google.maps.LatLngBounds();
+    this.userMarker = new google.maps.Marker({ map: this.map });
   }
 
 
-  componentDidUpdate() {
-    this.markers = this.props.dinners.map(dinner => {
-      const Marker = new google.maps.Marker({
-        map: this.map,
-        position: dinner.location,
-        animation: google.maps.Animation.DROP
+  componentWillUpdate(nextProps) {
+    this.infoWindow = new google.maps.InfoWindow();
+
+    if(Object.keys(nextProps.userMarker).length !== 0) {
+      this.userMarker.setPosition(nextProps.userMarker);
+      this.map.setCenter(nextProps.userMarker);
+      this.map.setZoom(14);
+
+      this.bounds.extend(nextProps.userMarker);
+      this.filterMarkers();
+    }
+
+    if(nextProps.dinners.length !== this.props.dinners.length) {
+      this.markers = nextProps.dinners.map(dinner => {
+        const Marker = new google.maps.Marker({
+          map: this.map,
+          position: dinner.location,
+          animation: google.maps.Animation.DROP
+        });
+
+        this.bounds.extend(dinner.location);
+
+        Marker.addListener('click', () => {
+          this.infoWindow.setContent(`
+            <a href=${`/dinners/${dinner.id}`} />
+            <h2>${dinner.title}</h2>
+            `);
+          this.infoWindow.open(this.map, Marker);
+        });
+
+        return Marker;
       });
-
-      this.bounds.extend(dinner.location);
-
-      Marker.addListener('click', () => {
-        this.infoWindow.setContent(`
-          <a href=${`/dinners/${dinner.id}`} />
-          <h2>${dinner.title}</h2>
-        `);
-        this.infoWindow.open(this.map, Marker);
-      });
-
-      return Marker;
-    });
+    }
 
     this.map.fitBounds(this.bounds);
   }
 
-  componentWillUnmount() {
-    this.markers && this.markers.forEach(marker => marker.setMap(null));
-    this.markers = [];
-    this.map = null;
-  }
+    filterMarkers = () => {
+      if(this.userCircle) this.userCircle.setMap(null);
+
+      this.userCircle = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: this.map,
+        center: this.userMarker.getPosition(),
+        radius: 5000
+      });
+
+      this.bounds = this.userCircle.getBounds();
+      this.map.fitBounds(this.bounds);
+
+      this.markers.forEach(marker => {
+        marker.setMap(this.map);
+
+        if(!this.bounds.contains(marker.getPosition())) {
+          marker.setMap(null);
+        }
+      });
+    }
+
+    componentWillUnmount() {
+      this.markers && this.markers.forEach(marker => marker.setMap(null));
+      this.markers = [];
+      this.map = null;
+    }
 
 
-  render() {
-    return (
-      <div className="google-map" ref={element => this.mapCanvas = element}></div>
-    );
-  }
+    render() {
+      return (
+        <div className="google-map" ref={element => this.mapCanvas = element}></div>
+      );
+    }
 }
 
 export default GoogleMap;

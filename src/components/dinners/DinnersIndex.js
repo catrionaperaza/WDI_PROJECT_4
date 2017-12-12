@@ -11,8 +11,9 @@ import GoogleMap from '../utility/GoogleMap';
 class DinnersIndex extends React.Component {
 
   state = {
-    dinners: []
-
+    dinners: [],
+    userMarker: {},
+    userRadius: null
   }
 
   componentDidMount() {
@@ -20,6 +21,11 @@ class DinnersIndex extends React.Component {
       .get('/api/dinners')
       .then(res => this.setState({ dinners: res.data }))
       .catch(err => console.log(err));
+  }
+
+  handleUserMarkerData = (latLng) => {
+    console.log('inside dinners index', latLng);
+    this.setState({ userMarker: latLng });
   }
 
   render() {
@@ -31,8 +37,8 @@ class DinnersIndex extends React.Component {
               Create Dinner Event
             </Link>}
           </div>
-          <SearchBox />
-          <GoogleMap dinners={this.state.dinners} />
+          <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
+          <GoogleMap userMarker={this.state.userMarker} dinners={this.state.dinners} />
           {this.state.dinners.map(dinner => {
             return(
               <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">

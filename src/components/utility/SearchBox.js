@@ -13,39 +13,42 @@ class SearchBox extends React.Component {
     this.searchBox = new google.maps.places.SearchBox(this.input);
 
     this.searchBox.addListener('places_changed', () => {
-      console.log(this.searchBox.getPlaces());
-      const place = this.searchBox.getPlaces();
-      const { name, formatted_address } = place;
-      const location = place.geometry.location.toJSON();
+      const newPlace = this.searchBox.getPlaces()[0];
 
-      this.props.handleChange(name, formatted_address, location);
+      const latLng = {
+        lat: newPlace.geometry.location.lat(),
+        lng: newPlace.geometry.location.lng()
+      };
+
+      this.props.handleUserMarkerData(latLng);
     });
 
-    if (places.length == 0) {
-      return;
-    }
-    this.infoWindow = google.maps.InfoWindow() => {
-    this.bounds = new google.maps.LayLngBounds();
-    }
+    // if (places.length == 0) {
+    //   return;
+    // }
+    // this.bounds = new google.maps.LayLngBounds();
+    // }
   }
 
 
-  componentDidUpdate() {
-    this.markers = this.place
-      const Marker = new google.maps.Marker({
-        map: this.map,
-        position: place.location,
-        animation: google.maps.Animation.DROP
-      });
+  // componentDidUpdate() {
+  //   this.markers = this.place
+  //     const Marker = new google.maps.Marker({
+  //       map: this.map,
+  //       position: location,
+  //       animation: google.maps.Animation.DROP
+  //     });
+  //
+  //     return Marker;
+  //   };
+  //
+  //
+  // this.map.fitBounds(this.bounds);
 
-      return Marker;
-    });
-
-    this.map.fitBounds(this.bounds);
-  }
 
 
-  render () {
+
+  render(){
     return(
       <input ref={element => this.input = element} />
     );
