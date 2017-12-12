@@ -19,7 +19,9 @@ class DinnersEdit extends React.Component {
 
   componentDidMount() {
     Axios
-      .get(`/api/dinners/${this.props.match.params.id}`)
+      .get(`/api/dinners/${this.props.match.params.id}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       .then(res => this.setState({ dinner: res.data }))
       .catch(err => console.log(err));
   }

@@ -11,12 +11,14 @@ class UsersShow extends React.Component {
 
   componentWillMount() {
     Axios
-      .get(`/api/users/${this.props.match.params.id}`)
+      .get(`/api/users/${this.props.match.params.id}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       .then(res => this.setState({ user: res.data}))
       .catch(err => console.log(err));
   }
 
-  deleteDinner = () => {
+  deleteUser = () => {
     Axios
       .delete(`/api/users/${this.props.match.params.id}`, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
@@ -35,9 +37,9 @@ class UsersShow extends React.Component {
             <h3>Location: {this.state.user.formatted_address}</h3>
             <p>Bio: {this.state.user.bio}</p>
             <h3>Contact Details: {this.state.user.email}</h3>
-            { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
+            {/* { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
             </Link>}
-            {' '}
+            {' '} */}
             { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteUser}>
             Delete Profile
             </button>}

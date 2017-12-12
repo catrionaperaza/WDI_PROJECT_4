@@ -18,7 +18,9 @@ class UsersEdit extends React.Component {
 
   componentDidMount() {
     Axios
-      .get(`/api/users/${this.props.match.params.id}`)
+      .get(`/api/users/${this.props.match.params.id}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
   }

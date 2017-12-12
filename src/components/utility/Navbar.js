@@ -6,8 +6,6 @@ import BackButton from '../utility/BackButton';
 
 const Navbar = ({ history }) => {
 
-  const { userId } = Auth.getPayload();
-
   function logout(e) {
     e.preventDefault();
 
@@ -21,9 +19,9 @@ const Navbar = ({ history }) => {
       {' '}
       { !Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
       {' '}
-      { Auth.isAuthenticated() && <Link to={'/homepage'} className="standard-button">Home</Link> }
+      { Auth.isAuthenticated() && <Link to={'/'} className="standard-button">Home</Link> }
       {' '}
-      { Auth.isAuthenticated() && <Link to={`/users/${userId}/edit`} className="standard-button">Edit Profile</Link> }
+      { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}/edit`} className="standard-button">Edit Profile</Link> }
       {' '}
       { Auth.isAuthenticated() && <Link to={'/yourdinners'} className="standard-button">Your dinners</Link> }
       {' '}

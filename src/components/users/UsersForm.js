@@ -65,12 +65,12 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <select>
             <option value="user.attendee" onChange={handleChange}>Yes</option>
             <option value="">No</option>
           </select>
-        </div>
+        </div> */}
         <div>
           <button className="save-button">Save</button>
         </div>

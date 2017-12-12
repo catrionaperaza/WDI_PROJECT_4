@@ -11,21 +11,21 @@ router.route('/login')
   .post(auth.login);
 
 router.route('/users')
-  .get(users.index);
+  .get(secureRoute, users.index);
 
 router.route('/users/:id')
-  // .all(secureRoute)
+  .all(secureRoute)
   .get(users.show)
   .put(users.update)
   .delete(users.delete);
 
 router.route('/dinners')
-  // .all(secureRoute)
+  .all(secureRoute)
   .get(dinners.index)
-  .post(secureRoute, dinners.create);
+  .post(dinners.create);
 
 router.route('/dinners/:id')
-  // .all(secureRoute)
+  .all(secureRoute)
   .get(dinners.show)
   .put(dinners.update)
   .delete(dinners.delete);

@@ -9,14 +9,17 @@ import Auth from '../../lib/Auth';
 class UsersIndex extends React.Component {
 
   state = {
-    users: []
-
+    users: [],
+    attendees: []
   }
 
   componentDidMount() {
     Axios
-      .get('/api/users')
+      .get('/api/users', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       .then(res => this.setState({ users: res.data }))
+      // .then(res => this.setState({ attendees: !res.data.attendee }))
       .catch(err => console.log(err));
   }
 

@@ -15,7 +15,9 @@ class DinnersIndex extends React.Component {
 
   componentDidMount() {
     Axios
-      .get('/api/dinners')
+      .get('/api/dinners', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       .then(res => this.setState({ dinners: res.data }))
       .catch(err => console.log(err));
   }
