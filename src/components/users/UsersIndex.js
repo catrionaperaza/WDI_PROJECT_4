@@ -23,7 +23,7 @@ class UsersIndex extends React.Component {
       <div>
         <div className="row">
           <GoogleMap users={this.state.users} />
-          {this.state.users.map(user => {
+          { this.state.users.map(user => {
             return(
               <div key={user.id} >
                 <Link to={`/users/${user.id}`}>

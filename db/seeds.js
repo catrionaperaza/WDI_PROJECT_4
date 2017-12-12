@@ -22,7 +22,8 @@ User
     passwordConfirmation: 'password',
     image: 'http://www.catster.com/wp-content/uploads/2015/06/cat-happy-eyes-shutterstock_73519210.jpg',
     location: { lat: '51.532903', lng: '-0.10638410000001386' },
-    bio: 'cool cat cool dinners'
+    bio: 'cool cat cool dinners',
+    attendee: 'yes'
   }])
   .then((users)=> {
     console.log(`${users.length} users created`);

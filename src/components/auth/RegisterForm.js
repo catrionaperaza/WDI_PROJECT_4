@@ -83,6 +83,12 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="form-control"
         />
       </div>
+      <div className="form-group">
+        <select>
+          <option value="user.attendee" onChange={handleChange}>Yes</option>
+          <option disabled value="">No</option>
+        </select>
+      </div>
       <button className="btn btn-primary">Submit</button>
     </form>
   );
