@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import './scss/debug.scss';
+import 'bootstrap-css-only';
+import { Grid, Row, Col } from 'react-bootstrap';
+
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
 
@@ -14,13 +18,14 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <header>
-            <h1></h1>
-          </header>
-          <main>
-            <Routes />
-            <Navbar />
-          </main>
+          <Grid>
+            <Row className="show-grid"></Row>
+
+            <main>
+              <Routes />
+              <Navbar />
+            </main>
+          </Grid>
         </div>
       </Router>
     );
