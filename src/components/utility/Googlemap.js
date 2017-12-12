@@ -19,7 +19,6 @@ class GoogleMap extends React.Component {
     this.userMarker = new google.maps.Marker({ map: this.map });
   }
 
-
   componentWillUpdate(nextProps) {
     this.infoWindow = new google.maps.InfoWindow();
 
