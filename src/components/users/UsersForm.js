@@ -1,23 +1,22 @@
 import React from 'react';
-
-import BackButton from '../utility/BackButton';
 import AutoComplete from '../utility/AutoComplete';
+import BackButton from '../utility/BackButton';
 
-function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}) {
+function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
         <BackButton history={history} />
       </div>
-      <form onSubmit={handleSubmit} className="col-md-6">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Event Title</label>
           <input
             type="text"
             className="form-control"
-            id="title"
-            name="title"
-            value={dinner.title}
+            id="name"
+            name="name"
+            placeholder="name"
+            value={user.name}
             onChange={handleChange}
           />
         </div>
@@ -29,41 +28,55 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
           <input
             type="text"
             className="form-control"
-            name="image"
-            placeholder="image link"
-            value={dinner.image}
+            name="username"
+            placeholder="Username"
+            value={user.username}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="avail_places">Available places: </label>
-          <input
-            type="Number"
-            className="form-control"
-            name="avail_places"
-            placeholder="available places"
-            value={dinner.avail_places}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Dinner Event Description</label>
           <input
             type="text"
             className="form-control"
-            id="description"
-            name="description"
-            value={dinner.description}
+            name="email"
+            placeholder="Email"
+            value={user.email}
             onChange={handleChange}
           />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            name="image"
+            placeholder="image link"
+            value={user.image}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            name="bio"
+            id="bio"
+            placeholder="bio"
+            value={user.bio}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <select>
+            <option value="user.attendee" onChange={handleChange}>Yes</option>
+            <option value="">No</option>
+          </select>
         </div>
         <div>
           <button className="save-button">Save</button>
         </div>
       </form>
     </div>
-
   );
 }
 
-export default DinnersForm;
+export default UsersForm;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import SearchBox from '../utility/SearchBox';
 import GoogleMap from '../utility/GoogleMap0';
+
 import Auth from '../../lib/Auth';
 
 class UsersIndex extends React.Component {
@@ -26,11 +27,12 @@ class UsersIndex extends React.Component {
         <div className="row">
           <SearchBox />
           <GoogleMap users={this.state.users} />
-          {this.state.users.map(user => {
+          { this.state.users.map(user => {
             return(
               <div key={user.id} >
+                { Auth.isAuthenticated() &&
                 <Link to={`/users/${user.id}`}>
-                  <h2>Name: {user.name}</h2></Link>
+                  <h2>Name: {user.name}</h2></Link> }
                 <h3>Location: {user.formatted_address}</h3>
               </div>
             );

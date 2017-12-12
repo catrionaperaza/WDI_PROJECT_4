@@ -14,18 +14,20 @@ router.route('/users')
   .get(users.index);
 
 router.route('/users/:id')
+  // .all(secureRoute)
   .get(users.show)
-  .put(secureRoute, users.update)
-  .delete(secureRoute, users.delete);
+  .put(users.update)
+  .delete(users.delete);
 
 router.route('/dinners')
+  // .all(secureRoute)
   .get(dinners.index)
   .post(secureRoute, dinners.create);
 
-
 router.route('/dinners/:id')
+  // .all(secureRoute)
   .get(dinners.show)
-  .put(secureRoute, dinners.update)
+  .put(dinners.update)
   .delete(dinners.delete);
 
 router.all('/*', (req, res) => res.notFound());
