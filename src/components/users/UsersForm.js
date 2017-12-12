@@ -65,12 +65,16 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             onChange={handleChange}
           />
         </div>
-        {/* <div className="form-group">
-          <select>
-            <option value="user.attendee" onChange={handleChange}>Yes</option>
-            <option value="">No</option>
-          </select>
-        </div> */}
+        <div className="form-group">
+          <input
+            type="text"
+            name="attendeeOrHost"
+            placeholder="Please list as Attendee or Host"
+            onChange={handleChange}
+            value={user.attendeeOrHost}
+            className="form-control"
+          />
+        </div>
         <div>
           <button className="save-button">Save</button>
         </div>

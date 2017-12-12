@@ -10,8 +10,7 @@ import Auth from '../../lib/Auth';
 class UsersIndex extends React.Component {
 
   state = {
-    users: [],
-    attendees: []
+    users: []
   }
 
   componentDidMount() {
@@ -20,7 +19,6 @@ class UsersIndex extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(res => this.setState({ users: res.data }))
-      // .then(res => this.setState({ attendees: !res.data.attendee }))
       .catch(err => console.log(err));
   }
 
@@ -37,6 +35,7 @@ class UsersIndex extends React.Component {
                 <Link to={`/users/${user.id}`}>
                   <h2>Name: {user.name}</h2></Link> }
                 <h3>Location: {user.formatted_address}</h3>
+                <h3>Attendee or Host: {user.attendeeOrHost}</h3>
               </div>
             );
           })}

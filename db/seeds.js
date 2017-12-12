@@ -64,7 +64,7 @@ User
     email: 'Johnboy@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
-    image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAKDAAAAJDliNmVlNDk1LTg1YmYtNDlkNi04OTBlLThkNmI3Yjk0ZGFlMQ.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSl8LkFiEL3CPVkc4IttyWbacY54OBvWWHl4ByUFTGwXCLNGDbug',
     location: { lat: '51.505431', lng: '-0.023533' },
     bio: 'Hi I\'m John! I would love to have some extra people to join my dinner this year, I like to have all my friends over and have a fun evening! Please get in touch if this sounds appealing! ',
     attendeeOrHost: 'Host'
@@ -75,7 +75,7 @@ User
     email: 'ktclarky@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
-    image: '',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBndsSbkZKNLeGabJt0KH--NNZ0zo_3ZUX6H_pDwgcekfj3dmb5g',
     location: { lat: '51.458452', lng: '-0.149261'},
     bio: 'Hi, Katie here, I have a family of four and two extra chairs at the table! Check out my dinner page and see if you would be interested in joining us! ',
     attendeeOrHost: 'Host'
@@ -92,18 +92,18 @@ User
         description: 'Join us for a lovely family Christmas dinner! We would love to invite two extra guests to dinner this year, as we love to meet new people, to learn about different cultures, and to share the joy of Christmas! Please just message if you are living somewhere nearby and if you have any questions',
         createdBy: users[5]
       },{
-        title: 'Delicious Christmas dinner in Angel',
-        formatted_address: 'Angel Station',
-        location: { lat: '34.030966', lng: '-118.464019' },
+        title: 'Delicious Christmas dinner in Wimbledon',
+        formatted_address: 'Wimbledon Station',
+        location: { lat: '51.421413', lng: '-0.205483' },
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BoIsv37YCuFsPHrbMk1JAcaeF51kZsNuHjlzhL6J7GVL6koRog',
         avail_places: '1',
         description: 'Hi, we are welcoming one friend to our house for Christmas dinner. We think this is a great idea, and would love to meet someone new and share our food with you. We tend to eat a lot of vegetables so if you are vegetarian this is no problem. Please let us know if you are interested in joining us!',
-        createdBy: users[0]
+        createdBy: users[3]
       },{
         title: 'Yummy XMAS dinner!',
         formatted_address: 'Canary Wharf station',
         location: { lat: '51.505431', lng: '-0.023533' },
-        image: '',
+        image: 'http://www.qygjxz.com/data/out/85/5940440-friends-pictures.jpg',
         avail_places: '4',
         description: 'Lots of friends coming together for a yummy dinner this Christmas! Lots of room for a few others so please get in touch if you live nearby and would be good company! We are very friendly and like to have fun!',
         createdBy: users[4]
@@ -111,7 +111,7 @@ User
       ]);
   })
   .then((dinner) => {
-    console.log(`${dinner.length} dinner created!`);
+    console.log(`${dinner.length} dinners created!`);
   })
   .catch((err)=> {
     console.log(err);

@@ -36,7 +36,7 @@ class DinnersShow extends React.Component {
         </div>
         <div className="col-md-6">
           <h2>Event: {this.state.dinner.title}</h2>
-          <h3>Number of places: {this.state.dinner.avail_places}</h3>
+          <p>Number of places: {this.state.dinner.avail_places}</p>
           <p>Description: {this.state.dinner.description}</p>
           <h3>Host: {this.state.dinner.createdBy}TBC</h3>
           <BackButton />

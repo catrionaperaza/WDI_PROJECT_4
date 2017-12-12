@@ -37,6 +37,7 @@ class UsersShow extends React.Component {
             <h3>Location: {this.state.user.formatted_address}</h3>
             <p>Bio: {this.state.user.bio}</p>
             <h3>Contact Details: {this.state.user.email}</h3>
+            <h3>Attendee or Host : {this.state.user.attendeeOrHost}</h3>
             {/* { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
             </Link>}
             {' '} */}
