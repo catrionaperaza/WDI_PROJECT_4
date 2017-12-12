@@ -25,13 +25,13 @@ const Routes = () => {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route exact path="/" component={Homepage} />
-      <Route exact path="/dinners" component={DinnersIndex} />
-      <Route exact path="/users" component={UsersIndex} />
+      <ProtectedRoute exact path="/dinners" component={DinnersIndex} />
+      <ProtectedRoute exact path="/users" component={UsersIndex} />
       <ProtectedRoute exact path="/dinners/new" component={DinnersNew} />
       <ProtectedRoute exact path="/dinners/:id/edit" component={DinnersEdit} />
       <ProtectedRoute exact path="/users/:id/edit" component={UsersEdit} />
-      <Route path="/dinners/:id" component={DinnersShow} />
-      <Route path="/users/:id" component={UsersShow} />
+      <ProtectedRoute path="/dinners/:id" component={DinnersShow} />
+      <ProtectedRoute path="/users/:id" component={UsersShow} />
     </Switch>
   );
 };

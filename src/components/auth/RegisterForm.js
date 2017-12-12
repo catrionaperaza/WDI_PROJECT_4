@@ -17,7 +17,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
         <input
           type="text"
           name="formatted_address"
-          placeholder="address"
+          placeholder="Landmark or station near your home (please do not give your exact address for security reasons)"
           onChange={handleChange}
           value={user.formatted_address}
           className="form-control"
@@ -84,10 +84,14 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
         />
       </div>
       <div className="form-group">
-        <select>
-          <option value="user.attendee" onChange={handleChange}>Yes</option>
-          <option disabled value="">No</option>
-        </select>
+        <input
+          type="text"
+          name="attendeeOrHost"
+          placeholder="Please list as Attendee or Host"
+          onChange={handleChange}
+          value={user.attendeeOrHost}
+          className="form-control"
+        />
       </div>
       <button className="btn btn-primary">Submit</button>
     </form>

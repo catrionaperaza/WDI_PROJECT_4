@@ -11,7 +11,6 @@ class UsersEdit extends React.Component {
       formatted_address: '',
       username: '',
       email: '',
-      password: '',
       image: '',
       bio: ''
     }

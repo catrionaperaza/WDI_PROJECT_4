@@ -4,16 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
-import botNavBar from './components/utility/botNavBar';
-import Auth from './lib/Auth';
 
 import './scss/style.scss';
 
 class App extends React.Component {
-
-  state = {
-    user: ''
-  }
 
   render() {
     return (
@@ -25,7 +19,6 @@ class App extends React.Component {
           <main>
             <Routes />
             <Navbar />
-            <botNavBar />
           </main>
         </div>
       </Router>

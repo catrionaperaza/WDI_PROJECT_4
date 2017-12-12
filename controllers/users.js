@@ -1,64 +1,41 @@
 const User = require('../models/user');
 
-function usersIndex(req, res) {
+function usersIndex(req, res, next) {
   User.find()
     .exec()
     .then(users => res.status(200).json(users))
-    .catch(() =>
-      res
-        .status(500)
-        .json({ message: 'Oh no! Something went wrong. Please try again!' })
-    );
+    .catch(next);
 }
 
-function usersShow(req, res) {
+function usersShow(req, res, next) {
   User.findById(req.params.id)
     .exec()
     .then(user => {
-      if (!user)
-        return res
-          .status(404)
-          .json({ message: 'We couldn\'t find this user. Please try again!' });
-      return res.status(200).json(user);
+      if(!user) return res.notFound();
+      return res.json(user);
     })
-    .catch(() =>
-      res
-        .status(500)
-        .json({ message: 'Oh no! Something went wrong. Please try again!' })
-    );
+    .catch(next);
 }
 
-function usersUpdate(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  })
+function usersUpdate(req, res, next) {
+  User.findById(req.params.id)
     .exec()
     .then(user => {
-      if (!user)
-        return res
-          .status(404)
-          .json({ message: 'We couldn\'t find this user. Please try again!' });
-      return res.status(200).json({ user });
+      if(!user) return res.notFound();
+      user = Object.assign(user, req.body);
+      return user.save();
     })
-    .catch(() =>
-      res
-        .status(500)
-        .json({ message: 'Oh no! Something went wrong. Please try again!' })
-    );
+    .then(user => res.json(user))
+    .catch(next);
 }
 
-function usersDelete(req, res) {
+function usersDelete(req, res, next) {
   User.findByIdAndRemove(req.params.id)
     .exec()
     .then(() => {
       return res.status(200).json({ message: 'User successfully deleted!' });
     })
-    .catch(() =>
-      res
-        .status(500)
-        .json({ message: 'Oh no! Something went wrong. Please try again!' })
-    );
+    .catch(next);
 }
 
 module.exports = {

@@ -21,7 +21,7 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
           />
         </div>
         <div className="form-group">
-          <label>formatted_address</label>
+          <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
           <AutoComplete handleChange={handleLocationChange} />
         </div>
         <div className="form-group">
@@ -41,16 +41,6 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             name="email"
             placeholder="Email"
             value={user.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            name="password"
-            placeholder="Password"
-            value={user.password}
             onChange={handleChange}
           />
         </div>

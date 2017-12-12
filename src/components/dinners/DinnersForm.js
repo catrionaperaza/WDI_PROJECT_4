@@ -22,7 +22,7 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
           />
         </div>
         <div className="form-group">
-          <label>Address</label>
+          <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
           <AutoComplete handleChange={handleLocationChange} />
         </div>
         <div className="form-group">
