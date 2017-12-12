@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import SearchBox from '../utility/SearchBox';
+
 import Auth from '../../lib/Auth';
 
 import GoogleMap from '../utility/GoogleMap';
@@ -29,6 +31,7 @@ class DinnersIndex extends React.Component {
               Create Dinner Event
             </Link>}
           </div>
+          <SearchBox />
           <GoogleMap dinners={this.state.dinners} />
           {this.state.dinners.map(dinner => {
             return(
