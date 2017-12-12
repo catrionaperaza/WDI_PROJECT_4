@@ -1,13 +1,11 @@
 import React from 'react';
-
-import BackButton from '../utility/BackButton';
 import AutoComplete from '../utility/AutoComplete';
+import MultiSelect from '../utility/MultiSelect';
 
-function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}) {
+function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner, handleSelectChange, removeSelected, attendees, value}) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
-        <BackButton history={history} />
       </div>
       <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
@@ -55,6 +53,14 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner}
             name="description"
             value={dinner.description}
             onChange={handleChange}
+          />
+        </div>
+        <div>
+          <MultiSelect
+            handleSelectChange={handleSelectChange}
+            removeSelected={removeSelected}
+            options={attendees}
+            value={value}
           />
         </div>
         <div>

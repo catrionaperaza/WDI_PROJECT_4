@@ -11,11 +11,28 @@ class DinnersNew extends React.Component {
       title: '',
       formatted_address: '',
       image: '',
-      // place_id: '',
       avail_places: '',
-      description: ''
-    }
+      description: '',
+      attendees: []
+    },
+    removeSelected: true,
+    attendees: [],
+    value: []
   };
+
+  componentDidMount() {
+    Axios
+      .get('/api/users', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(res => {
+        const attendees = res.data.map(attendee => {
+          return { label: attendee.username, value: attendee.id };
+        });
+        this.setState({attendees});
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
+  }
 
   handleChange = ({ target: { name, value }}) => {
     const dinner = Object.assign({}, this.state.dinner, { [name]: value });
@@ -30,14 +47,23 @@ class DinnersNew extends React.Component {
   handleSubmit =(e) => {
     e.preventDefault();
 
-    Axios
-      .post('/api/dinners', this.state.dinner, {
-        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
-      })
-      .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err));
+    const dinnerAttendees = this.state.value.map(attendee => attendee.value);
+    console.log(dinnerAttendees);
+    const dinner = Object.assign({}, this.state.dinner, { attendees: dinnerAttendees });
+    this.setState({ dinner }, () => {
+
+      Axios
+        .post('/api/dinners', this.state.dinner, {
+          headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+        })
+        .then(() => this.props.history.push('/'))
+        .catch(err => console.log(err));
+    });
   }
 
+  handleSelectChange = (value) => {
+    this.setState({ value });
+  }
 
   render(){
     return(
@@ -46,6 +72,8 @@ class DinnersNew extends React.Component {
         handleChange={this.handleChange}
         handleLocationChange={this.handleLocationChange}
         dinner={this.state.dinner}
+        handleSelectChange={this.handleSelectChange}
+        {...this.state}
       />
     );
   }

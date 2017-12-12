@@ -38,6 +38,9 @@ class DinnersShow extends React.Component {
           <p>Number of places: {this.state.dinner.avail_places}</p>
           <p>Description: {this.state.dinner.description}</p>
           {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.username}</h3>}
+          <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
+            {attendee.name}
+          </div>)}</h3>
           { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
           </Link>}
           {' '}
