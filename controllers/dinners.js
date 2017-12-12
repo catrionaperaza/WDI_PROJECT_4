@@ -23,6 +23,7 @@ function dinnersCreate(req, res, next) {
 function dinnersShow(req, res, next) {
   Dinner
     .findById(req.params.id)
+    .populate('createdBy')
     .exec()
     .then((dinner) => {
       if(!dinner) return res.notFound();

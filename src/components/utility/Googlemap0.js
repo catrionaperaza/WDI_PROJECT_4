@@ -34,6 +34,7 @@ class GoogleMap extends React.Component {
         this.infoWindow.setContent(`
           <a href=${`/users/${user.id}`} />
           <h2>${user.name}</h2>
+          <h3>${user.attendeeOrHost}</h3>
           `);
         this.infoWindow.open(this.map, Marker);
       });

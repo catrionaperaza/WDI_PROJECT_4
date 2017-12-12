@@ -12,7 +12,8 @@ class UsersEdit extends React.Component {
       username: '',
       email: '',
       image: '',
-      bio: ''
+      bio: '',
+      attendeeOrHost: ''
     }
   };
 
@@ -44,7 +45,6 @@ class UsersEdit extends React.Component {
   render() {
     return (
       <UsersForm
-        history={this.props.history}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         user={this.state.user}

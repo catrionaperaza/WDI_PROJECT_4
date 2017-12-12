@@ -103,7 +103,7 @@ User
         title: 'Yummy XMAS dinner!',
         formatted_address: 'Canary Wharf station',
         location: { lat: '51.505431', lng: '-0.023533' },
-        image: 'http://www.qygjxz.com/data/out/85/5940440-friends-pictures.jpg',
+        image: 'https://media.gettyimages.com/photos/happy-group-of-friends-at-the-beach-picture-id505259176?b=1&k=6&m=505259176&s=612x612&w=0&h=4rXkNN2ckceLnpeNG7gv1di71MxtFINNMo9kWLZwBLA=',
         avail_places: '4',
         description: 'Lots of friends coming together for a yummy dinner this Christmas! Lots of room for a few others so please get in touch if you live nearby and would be good company! We are very friendly and like to have fun!',
         createdBy: users[4]
