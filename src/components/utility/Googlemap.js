@@ -67,7 +67,7 @@ class GoogleMap extends React.Component {
         fillOpacity: 0.35,
         map: this.map,
         center: this.userMarker.getPosition(),
-        radius: 5000
+        radius: 14400
       });
 
       this.bounds = this.userCircle.getBounds();

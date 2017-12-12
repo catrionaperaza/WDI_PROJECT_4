@@ -2,15 +2,16 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import SearchBox from '../utility/SearchBox';
-import GoogleMap from '../utility/GoogleMap0';
+// import SearchBox from '../utility/SearchBox';
+import GoogleMap1 from '../utility/GoogleMap1';
 
 import Auth from '../../lib/Auth';
 
 class UsersIndex extends React.Component {
 
   state = {
-    users: []
+    users: [],
+    userMarker: {}
   }
 
   componentDidMount() {
@@ -26,8 +27,8 @@ class UsersIndex extends React.Component {
     return (
       <div>
         <div className="row">
-          <SearchBox />
-          <GoogleMap users={this.state.users} />
+          {/* <SearchBox /> */}
+          <GoogleMap1 users={this.state.users} />
           { this.state.users.map(user => {
             return(
               <div key={user.id} >
