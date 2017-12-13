@@ -3,7 +3,7 @@
 import React from 'react';
 import mapStyles from '../config/mapStyles';
 
-class GoogleMap0 extends React.Component {
+class GoogleMap extends React.Component {
 
   bounds = new google.maps.LatLngBounds();
 
@@ -45,7 +45,7 @@ class GoogleMap0 extends React.Component {
           this.infoWindow.setContent(`
             <a href=${`/users/${user.id}`} />
             <h2>${user.name}</h2>
-            `);
+            />`);
           this.infoWindow.open(this.map, Marker);
         });
 
@@ -95,4 +95,4 @@ class GoogleMap0 extends React.Component {
   }
 }
 
-export default GoogleMap0;
+export default GoogleMap;
