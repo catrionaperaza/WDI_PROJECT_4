@@ -9,7 +9,6 @@ class UsersEdit extends React.Component {
     user: {
       name: '',
       formatted_address: '',
-      username: '',
       email: '',
       image: '',
       bio: '',
@@ -42,12 +41,19 @@ class UsersEdit extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleLocationChange = (name, formatted_address, location) => {
+    const user = Object.assign({}, this.state.user, { name, formatted_address, location });
+    this.setState({ user });
+  }
+
   render() {
     return (
       <UsersForm
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         user={this.state.user}
+        handleLocationChange={this.handleLocationChange}
+        {...this.state}
       />
     );
   }

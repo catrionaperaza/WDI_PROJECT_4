@@ -1,6 +1,7 @@
 import React from 'react';
+import AutoComplete from '../utility/AutoComplete';
 
-const RegisterForm = ({ handleChange, handleSubmit, user }) => {
+const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
@@ -14,24 +15,8 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
         />
       </div>
       <div className="form-group">
-        <input
-          type="text"
-          name="formatted_address"
-          placeholder="Landmark or station near your home (please do not give your exact address for security reasons)"
-          onChange={handleChange}
-          value={user.formatted_address}
-          className="form-control"
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          onChange={handleChange}
-          value={user.username}
-          className="form-control"
-        />
+        <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
+        <AutoComplete handleChange={handleLocationChange} />
       </div>
       <div className="form-group">
         <input

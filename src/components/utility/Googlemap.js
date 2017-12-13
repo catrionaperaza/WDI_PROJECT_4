@@ -6,6 +6,13 @@ import mapStyles from '../config/mapStyles';
 class GoogleMap extends React.Component {
 
   bounds = new google.maps.LatLngBounds();
+  userCircle = new google.maps.Circle({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
 
   componentDidMount() {
     this.map = new google.maps.Map(this.mapCanvas, {
@@ -20,6 +27,7 @@ class GoogleMap extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
+    this.userCircle.setRadius(nextProps.radius);
     this.infoWindow = new google.maps.InfoWindow();
 
     if(Object.keys(nextProps.userMarker).length !== 0) {
@@ -44,7 +52,7 @@ class GoogleMap extends React.Component {
         Marker.addListener('click', () => {
           this.infoWindow.setContent(`
             <a href=${`/dinners/${dinner.id}`} />
-            <h2>${dinner.title}</h2>
+            <h3>${dinner.title}, hosted by ${dinner.createdBy.name}</h2>
             `);
           this.infoWindow.open(this.map, Marker);
         });
@@ -56,44 +64,37 @@ class GoogleMap extends React.Component {
     this.map.fitBounds(this.bounds);
   }
 
-    filterMarkers = () => {
-      if(this.userCircle) this.userCircle.setMap(null);
+  filterMarkers = () => {
+    if(this.userCircle) this.userCircle.setMap(null);
 
-      this.userCircle = new google.maps.Circle({
-        strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
-        map: this.map,
-        center: this.userMarker.getPosition(),
-        radius: 8000
-      });
+    this.userCircle.setMap(this.map);
+    this.userCircle.setCenter(this.userMarker.getPosition());
+    this.userCircle.setRadius(this.props.radius);
 
-      this.bounds = this.userCircle.getBounds();
-      this.map.fitBounds(this.bounds);
+    this.bounds = this.userCircle.getBounds();
+    this.map.fitBounds(this.bounds);
 
-      this.markers.forEach(marker => {
-        marker.setMap(this.map);
+    this.markers.forEach(marker => {
+      marker.setMap(this.map);
 
-        if(!this.bounds.contains(marker.getPosition())) {
-          marker.setMap(null);
-        }
-      });
-    }
+      if(!this.bounds.contains(marker.getPosition())) {
+        marker.setMap(null);
+      }
+    });
+  }
 
-    componentWillUnmount() {
-      this.markers && this.markers.forEach(marker => marker.setMap(null));
-      this.markers = [];
-      this.map = null;
-    }
+  componentWillUnmount() {
+    this.markers && this.markers.forEach(marker => marker.setMap(null));
+    this.markers = [];
+    this.map = null;
+  }
 
 
-    render() {
-      return (
-        <div className="google-map" ref={element => this.mapCanvas = element}></div>
-      );
-    }
+  render() {
+    return (
+      <div className="google-map" ref={element => this.mapCanvas = element}></div>
+    );
+  }
 }
 
 export default GoogleMap;

@@ -9,10 +9,8 @@ class Register extends React.Component {
     user: {
       name: '',
       formatted_address: '',
-      username: '',
       email: '',
       password: '',
-      passwordConfirmation: '',
       image: '',
       bio: '',
       attendeeOrHost: ''
@@ -36,6 +34,11 @@ class Register extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleLocationChange = (name, formatted_address, location) => {
+    const user = Object.assign({}, this.state.user, { name, formatted_address, location });
+    this.setState({ user });
+  }
+
   render() {
     return (
       <div>
@@ -44,6 +47,8 @@ class Register extends React.Component {
           user={this.state.user}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleLocationChange={this.handleLocationChange}
+          {...this.state}
         />
       </div>
     );
