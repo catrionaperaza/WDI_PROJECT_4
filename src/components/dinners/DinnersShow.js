@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../lib/Auth';
-import BackButton from '../utility/BackButton';
 
 class DinnersShow extends React.Component {
   state = {
@@ -38,8 +37,10 @@ class DinnersShow extends React.Component {
           <h2>Event: {this.state.dinner.title}</h2>
           <p>Number of places: {this.state.dinner.avail_places}</p>
           <p>Description: {this.state.dinner.description}</p>
-          <h3>Host: {this.state.dinner.createdBy}TBC</h3>
-          <BackButton />
+          {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.username}</h3>}
+          <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
+            {attendee.name}
+          </div>)}</h3>
           { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
           </Link>}
           {' '}

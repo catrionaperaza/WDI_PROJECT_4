@@ -3,7 +3,7 @@ const Dinner = require('../models/dinner');
 function dinnersIndex(req, res, next) {
   Dinner.find()
     .find()
-    .populate('createdBy')
+    .populate('createdBy attendees')
     .exec()
     .then(dinners => res.json(dinners))
     .catch(next);
@@ -23,6 +23,7 @@ function dinnersCreate(req, res, next) {
 function dinnersShow(req, res, next) {
   Dinner
     .findById(req.params.id)
+    .populate('createdBy attendees')
     .exec()
     .then((dinner) => {
       if(!dinner) return res.notFound();
@@ -37,6 +38,7 @@ function dinnersUpdate(req, res, next) {
 
   Dinner
     .findById(req.params.id)
+    .populate('createdBy attendees')
     .exec()
     .then((dinner) => {
       if(!dinner) return res.notFound();

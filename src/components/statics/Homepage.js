@@ -6,6 +6,9 @@ import { Grid, Row, Col, Image } from 'react-bootstrap';
 import Auth from '../../lib/Auth';
 
 class Homepage extends React.Component {
+  state = {
+    dinner: {}
+  }
 
   render() {
     return(

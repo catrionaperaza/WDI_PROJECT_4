@@ -18,21 +18,21 @@ const Navbar = ({ history }) => {
 
   return(
     <nav>
-      <Grid>
-        { !Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
-        {' '}
-        { !Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
-        {' '}
-        { Auth.isAuthenticated() && <Link to={'/'} className="standard-button">Home</Link> }
-        {' '}
-        { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}/edit`} className="standard-button">Edit Profile</Link> }
-        {' '}
-        { Auth.isAuthenticated() && <Link to={'/yourdinners'} className="standard-button">Your dinners</Link> }
-        {' '}
-        { Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
-        {' '}
-        <BackButton />
-      </Grid>
+      { !Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
+      {' '}
+      { !Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
+      {' '}
+      { Auth.isAuthenticated() && <Link to={'/'} className="standard-button">Home</Link> }
+      {' '}
+      { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}/edit`} className="standard-button">Edit Profile</Link> }
+      {' '}
+      { Auth.isAuthenticated() && <Link to={'/dinners/new'} className="standard-button">Create a dinner</Link> }
+      {' '}
+      { Auth.isAuthenticated() && <Link to={'/'} className="standard-button">Your dinners</Link> }
+      {' '}
+      { Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
+      {' '}
+      <BackButton />
     </nav>
   );
 };

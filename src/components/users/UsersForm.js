@@ -1,12 +1,10 @@
 import React from 'react';
 import AutoComplete from '../utility/AutoComplete';
-import BackButton from '../utility/BackButton';
 
 function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
-        <BackButton history={history} />
       </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
