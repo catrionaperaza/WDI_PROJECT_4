@@ -28,8 +28,6 @@ const Navbar = ({ history }) => {
       {' '}
       { Auth.isAuthenticated() && <Link to={'/dinners/new'} className="standard-button">Create a dinner</Link> }
       {' '}
-      { Auth.isAuthenticated() && <Link to={'/'} className="standard-button">Your dinners</Link> }
-      {' '}
       { Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
       {' '}
       <BackButton />

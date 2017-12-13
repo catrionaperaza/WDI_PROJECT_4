@@ -46,9 +46,13 @@ class DinnersShow extends React.Component {
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
             { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="standard-button">Go to the host profile
             </Link>}
-            <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
-              {attendee.name}
-            </div>)}</h3>
+            <h4>Attendees:</h4> { this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => {
+              return(
+                <div key={attendee.id} >
+                  <h4><Link to={`/users/${attendee.id}`}><strong> {attendee.name}</strong></Link></h4>
+                </div>
+              );
+            })}
             { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
             </Link>}
             {' '}
