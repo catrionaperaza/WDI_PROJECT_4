@@ -32,7 +32,7 @@ class DinnersShow extends React.Component {
       <div className="container">
         <div className="row">
           <div className="page-banner col-md-12">
-            <h1> Dinner Events </h1>
+            <h1> Dinner </h1>
           </div>
         </div>
         <div className="row">
@@ -44,6 +44,8 @@ class DinnersShow extends React.Component {
             <p>Number of places: {this.state.dinner.avail_places}</p>
             <p>Description: {this.state.dinner.description}</p>
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
+            { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="standard-button">Go to the host profile
+            </Link>}
             <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
               {attendee.name}
             </div>)}</h3>

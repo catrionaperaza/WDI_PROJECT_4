@@ -78,7 +78,7 @@ User
     console.log(`${users.length} users created`);
     return Dinner
       .create([{
-        title: 'Christmas dinner with lots of turkey!',
+        title: 'Christmas dinner with lots of turkey',
         formatted_address: 'Clapham Common',
         location: { lat: '51.458452', lng: '-0.149261' },
         image: 'https://www.englishandculture.com/hs-fs/hub/98462/file-984264747-jpg/images/how_to_talk_about_your_family_in_english.jpg?t=1433880746000',
@@ -94,7 +94,7 @@ User
         description: 'Hi, we are welcoming one friend to our house for Christmas dinner. We think this is a great idea, and would love to meet someone new and share our food with you. We tend to eat a lot of vegetables so if you are vegetarian this is no problem. Please let us know if you are interested in joining us!',
         createdBy: users[3]
       },{
-        title: 'Yummy XMAS dinner!',
+        title: 'Yummy XMAS dinner',
         formatted_address: 'Canary Wharf station',
         location: { lat: '51.505431', lng: '-0.023533' },
         image: 'https://media.gettyimages.com/photos/happy-group-of-friends-at-the-beach-picture-id505259176?b=1&k=6&m=505259176&s=612x612&w=0&h=4rXkNN2ckceLnpeNG7gv1di71MxtFINNMo9kWLZwBLA=',
