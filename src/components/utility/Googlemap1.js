@@ -3,7 +3,7 @@
 import React from 'react';
 import mapStyles from '../config/mapStyles';
 
-class GoogleMap extends React.Component {
+class GoogleMap1 extends React.Component {
 
   bounds = new google.maps.LatLngBounds();
 
@@ -94,4 +94,4 @@ class GoogleMap extends React.Component {
   }
 }
 
-export default GoogleMap;
+export default GoogleMap1;
