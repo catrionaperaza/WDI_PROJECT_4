@@ -52,7 +52,7 @@ class GoogleMap extends React.Component {
         Marker.addListener('click', () => {
           this.infoWindow.setContent(`
             <a href=${`/dinners/${dinner.id}`} />
-            <h2>${dinner.title}</h2>
+            <h3>${dinner.title}, hosted by ${dinner.createdBy.name}</h2>
             `);
           this.infoWindow.open(this.map, Marker);
         });
