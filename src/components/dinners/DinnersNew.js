@@ -67,14 +67,21 @@ class DinnersNew extends React.Component {
 
   render(){
     return(
-      <DinnersForm
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        handleLocationChange={this.handleLocationChange}
-        dinner={this.state.dinner}
-        handleSelectChange={this.handleSelectChange}
-        {...this.state}
-      />
+      <div className="container">
+        <div className="row">
+          <div className="page-banner col-md-12">
+            <h1>Create a Dinner Event </h1>
+            <DinnersForm
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              handleLocationChange={this.handleLocationChange}
+              dinner={this.state.dinner}
+              handleSelectChange={this.handleSelectChange}
+              {...this.state}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 

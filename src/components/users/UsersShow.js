@@ -29,9 +29,16 @@ class UsersShow extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="image-tile col-md-4 col-sm-6 col-xs-12">
-          <img src={this.state.user.image} className="img-responsive" />
+      <div className="container">
+        <div className="row">
+          <div className="page-banner col-md-12">
+            <h1>Dinner Event Host Profile</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="image-tile col-md-6 col-sm-6 col-xs-12">
+            <img src={this.state.user.image} className="img-responsive" />
+          </div>
           <div className="col-md-6">
             <h2>Name: {this.state.user.name}</h2>
             <h3>Location: {this.state.user.formatted_address}</h3>
@@ -41,10 +48,10 @@ class UsersShow extends React.Component {
             {/* <h3> {this.state.dinner.createdBy}</h3> */}
 
             {/* { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
-            </Link>}
-            {' '} */}
+              </Link>}
+              {' '} */}
             { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteUser}>
-            Delete Profile
+              Delete Profile
             </button>}
           </div>
         </div>

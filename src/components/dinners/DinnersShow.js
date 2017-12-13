@@ -29,24 +29,31 @@ class DinnersShow extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="image-tile col-md-6">
-          <img src={this.state.dinner.image} className="img-responsive" />
+      <div className="container">
+        <div className="row">
+          <div className="page-banner col-md-12">
+            <h1> Dinner Events </h1>
+          </div>
         </div>
-        <div className="col-md-6">
-          <h2>Event: {this.state.dinner.title}</h2>
-          <p>Number of places: {this.state.dinner.avail_places}</p>
-          <p>Description: {this.state.dinner.description}</p>
-          {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.username}</h3>}
-          <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
-            {attendee.name}
-          </div>)}</h3>
-          { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
-          </Link>}
-          {' '}
-          { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteDinner}>
-            Delete
-          </button>}
+        <div className="row">
+          <div className="image-tile col-md-6">
+            <img src={this.state.dinner.image} className="img-responsive" />
+          </div>
+          <div className="col-md-6">
+            <h2>Event: {this.state.dinner.title}</h2>
+            <p>Number of places: {this.state.dinner.avail_places}</p>
+            <p>Description: {this.state.dinner.description}</p>
+            {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.username}</h3>}
+            <h3>Attendees: {this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => <div key={attendee.id}>
+              {attendee.name}
+            </div>)}</h3>
+            { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
+            </Link>}
+            {' '}
+            { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteDinner}>
+              Delete
+            </button>}
+          </div>
         </div>
       </div>
     );
