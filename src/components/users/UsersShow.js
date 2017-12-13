@@ -59,7 +59,7 @@ class UsersShow extends React.Component {
                 </div>
               );
             })}
-            { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteUser}>
+            { Auth.isAuthenticated() && Auth.getPayload().userId === this.state.user.id && <button className="main-button" onClick={this.deleteUser}>
               Delete Profile
             </button>}
           </div>

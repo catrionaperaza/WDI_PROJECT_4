@@ -35,6 +35,7 @@ class Homepage extends React.Component {
             { '' }
           </div>
         </div>
+
         {/* <div className="row">
           <div className="image-tile col-md-4 col-sm-6 col-xs-12">
             <img src="../assets/1.jpg" className="img-responsive" />
@@ -50,27 +51,20 @@ class Homepage extends React.Component {
         { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
           return(
             <div key={dinner.id} >
-              <h2><Link to={`/dinners/${dinner.id}`}> Dinners I am hosting: {dinner.title} <img src={dinner.image} className="img-responsive" /></Link></h2>
+              <h2><Link to={`/dinners/${dinner.id}`}> Dinners I am hosting: {dinner.title}<img src={dinner.image} className="img-responsive" /></Link></h2>
 
               {' '}
               {' '}
               {' '}
-
-              {dinner.attendees.map((attendee, i) => {
-                return(
-                  <div key={i}>
-                    <h2><Link to={`/users/${attendee}`}>Guest: {attendee.name}</Link></h2>
-                  </div>
-                );
-              })}
             </div>
           );
-        })}
+        })
+        }
 
         { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
           return(
             <div key={dinner.id} >
-              <h2><Link to={`/dinners/${dinner.id}`}><strong>Dinners I am Attending: {dinner.title}<img src={dinner.image} className="img-responsive" /></strong></Link></h2>
+              <h2><Link to={`/dinners/${dinner.id}`}><strong>Dinners I am Attending: {dinner.title}<img src={dinner.image}  className="img-responsive" /></strong></Link></h2>
             </div>
           );
         })}

@@ -44,7 +44,7 @@ class GoogleMap extends React.Component {
         Marker.addListener('click', () => {
           this.infoWindow.setContent(`
             <a href=${`/users/${user.id}`} />
-            <h2>${user.name}</h2>
+            <p>${user.name}</p>
             />`);
           this.infoWindow.open(this.map, Marker);
         });

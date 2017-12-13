@@ -53,11 +53,10 @@ class DinnersShow extends React.Component {
                 </div>
               );
             })}
-            { Auth.isAuthenticated() && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit
+            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
             </Link>}
             {' '}
-            { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteDinner}>
-              Delete
+            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="main-button" onClick={this.deleteDinner}>Delete your dinner
             </button>}
           </div>
         </div>
