@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 // import SearchBox from '../utility/SearchBox';
-import GoogleMap from '../utility/GoogleMap1';
+import GoogleMap1 from '../utility/GoogleMap1';
 
 import Auth from '../../lib/Auth';
 
@@ -28,7 +28,7 @@ class UsersIndex extends React.Component {
       <div>
         <div className="row">
           {/* <SearchBox /> */}
-          <GoogleMap userMarker={this.state.userMarker} users={this.state.users} />
+          <GoogleMap1 userMarker={this.state.userMarker} users={this.state.users} />
           { this.state.users.map(user => {
             return(
               <div key={user.id} >

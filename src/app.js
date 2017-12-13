@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-// import './scss/debug.scss';
+import './scss/debug.scss';
 import 'bootstrap-css-only';
 // import { Grid, Row, Col } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.css';
