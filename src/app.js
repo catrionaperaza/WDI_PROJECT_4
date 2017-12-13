@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// import './scss/debug.scss';
+import 'bootstrap-css-only';
+// import { Grid, Row, Col } from 'react-bootstrap';
+import 'font-awesome/css/font-awesome.css';
+
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
 
@@ -15,7 +20,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1>Welcome to Ho Ho Hosts!</h1>
+
           </header>
           <main>
             <Routes />

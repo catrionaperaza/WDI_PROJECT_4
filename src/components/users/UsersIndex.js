@@ -35,8 +35,8 @@ class UsersIndex extends React.Component {
                 { Auth.isAuthenticated() &&
                 <Link to={`/users/${user.id}`}>
                   <h2>Name: {user.name}</h2></Link> }
-                <h3>Location: {user.formatted_address}</h3>
-                <h3>Attendee or Host: {user.attendeeOrHost}</h3>
+                <h4>Location: {user.formatted_address}</h4>
+                <h4>Attendee or Host: {user.attendeeOrHost}</h4>
               </div>
             );
           })}
