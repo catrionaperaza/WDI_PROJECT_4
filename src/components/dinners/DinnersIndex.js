@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import SearchBox from '../utility/SearchBox';
+import Radius from '../utility/Radius';
 
 import Auth from '../../lib/Auth';
 
@@ -30,6 +31,12 @@ class DinnersIndex extends React.Component {
     this.setState({ userMarker: latLng });
   }
 
+  //handle radius function
+
+  handleUserRadius = (newRadius) => {
+    this.setState({ userRadius: newRadius });
+  }
+
   render() {
     return (
       <div>
@@ -39,6 +46,7 @@ class DinnersIndex extends React.Component {
               Create Dinner Event
             </Link>}
           </div>
+          <Radius handleUserRadius={this.handleUserRadius}/>
           <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           <GoogleMap userMarker={this.state.userMarker} dinners={this.state.dinners} />
           {this.state.dinners.map(dinner => {
