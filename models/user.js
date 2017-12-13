@@ -5,11 +5,9 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   location: { lat: Number, lng: Number },
   formatted_address: { type: String, required: true },
-  username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   image: { type: String, required: true },
-  place_id: { type: String },
   bio: { type: String, required: true },
   attendeeOrHost: { type: String, required: true }
 });

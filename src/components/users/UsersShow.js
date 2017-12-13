@@ -6,7 +6,7 @@ import Auth from '../../lib/Auth';
 
 class UsersShow extends React.Component {
   state = {
-    user: {}
+    user: []
   }
 
   componentWillMount() {
@@ -38,11 +38,12 @@ class UsersShow extends React.Component {
             <p>Bio: {this.state.user.bio}</p>
             <h3>Contact Details: {this.state.user.email}</h3>
             <h3>Attendee or Host : {this.state.user.attendeeOrHost}</h3>
-            {/* <h3> {this.state.dinner.createdBy}</h3> */}
+            {this.state.user.createdBy && this.state.user.createdBy.map(createdBy => <div key={createdBy._id}>
+              <Link to={`users/${this.state.user.createdBy._id}`}></Link>
+            </div>)}
 
-            {/* { Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">Edit Profile
-            </Link>}
-            {' '} */}
+
+
             { Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteUser}>
             Delete Profile
             </button>}

@@ -15,7 +15,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1></h1>
+            <h1>Welcome to Ho Ho Hosts!</h1>
           </header>
           <main>
             <Routes />

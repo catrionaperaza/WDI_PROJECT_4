@@ -16,7 +16,6 @@ User
   .create([{
     name: 'Victor Peraza',
     formatted_address: 'Wimbledon Station',
-    username: 'PerazaVic',
     email: 'VicPeraza@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
@@ -27,7 +26,6 @@ User
   }, {
     name: 'Hermes Torres',
     formatted_address: 'Aldgate East',
-    username: 'HerTorres',
     email: 'TorrHer@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
@@ -38,7 +36,6 @@ User
   }, {
     name: 'Carolina Rodriguez',
     formatted_address: 'Clapham Junction',
-    username: 'Caroisbest',
     email: 'Caroisbest@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
@@ -49,7 +46,6 @@ User
   }, {
     name: 'Catriona Odwyer',
     formatted_address: 'Wimbledon',
-    username: 'Catod',
     email: 'Catod@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
@@ -60,7 +56,6 @@ User
   }, {
     name: 'John Roberts',
     formatted_address: 'Canary Wharf station',
-    username: 'Johnboy',
     email: 'Johnboy@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
@@ -71,7 +66,6 @@ User
   }, {
     name: 'Katie Clarkson',
     formatted_address: 'Clapham Common',
-    username: 'KTClarkson',
     email: 'ktclarky@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',

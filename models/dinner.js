@@ -5,7 +5,6 @@ const dinnerSchema = mongoose.Schema({
   image: { type: String, required: true },
   location: { lat: Number, lng: Number },
   formatted_address: { type: String, required: true },
-  place_id: { type: String },
   avail_places: { type: Number, required: true },
   description: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },

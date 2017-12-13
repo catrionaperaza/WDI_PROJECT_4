@@ -26,16 +26,6 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
           <input
             type="text"
             className="form-control"
-            name="username"
-            placeholder="Username"
-            value={user.username}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
             name="email"
             placeholder="Email"
             value={user.email}

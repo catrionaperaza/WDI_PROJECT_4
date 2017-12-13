@@ -15,10 +15,6 @@ class Auth {
     return localStorage.removeItem('token');
   }
 
-  static removeToken() {
-    return localStorage.removeItem('token');
-  }
-
   static logout() {
     window.localStorage.removeItem('token');
   }

@@ -35,7 +35,7 @@ class DinnersEdit extends React.Component {
       })
       .then(res => {
         const attendees = res.data.map(attendee => {
-          return { label: attendee.username, value: attendee.id };
+          return { label: attendee.name, value: attendee.id };
         });
 
         this.setState({attendees});
