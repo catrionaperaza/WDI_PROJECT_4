@@ -39,12 +39,18 @@ class GoogleMap extends React.Component {
       this.filterMarkers();
     }
 
+    const dinnerImage = {
+      url: 'http://www.pvhc.net/img36/bmnfxduyaeokrqglccrw.png',
+      scaledSize: new google.maps.Size(65,63)
+    };
+
     if(nextProps.dinners.length !== this.props.dinners.length) {
       this.markers = nextProps.dinners.map(dinner => {
         const Marker = new google.maps.Marker({
           map: this.map,
           position: dinner.location,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP,
+          icon: dinnerImage
         });
 
         this.bounds.extend(dinner.location);

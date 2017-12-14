@@ -32,12 +32,18 @@ class GoogleMap1 extends React.Component {
       this.filterMarkers();
     }
 
+    const userImage = {
+      url: 'https://cdn3.iconfinder.com/data/icons/maps-and-navigation-7/65/68-512.png',
+      scaledSize: new google.maps.Size(65,63)
+    };
+
     if(nextProps.users.length !== this.props.users.length) {
       this.markers = nextProps.users.map(user => {
         const Marker = new google.maps.Marker({
           map: this.map,
           position: user.location,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP,
+          icon: userImage
         });
 
         this.bounds.extend(user.location);

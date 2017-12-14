@@ -19,9 +19,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <header>
-
-          </header>
+          <header></header>
           <main>
             <Routes />
             <Navbar />

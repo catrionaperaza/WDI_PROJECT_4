@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto:100,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   background: #fff;
   color: #333;
 }
 
 header {
-  height: 100px;
+  height: 80px;
   position: relative;
 
   nav {
@@ -35,7 +35,7 @@ h1 {
   padding: 0;
   font-size: 80px;
   letter-spacing: -5px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   line-height: 145px;
   color: grey;
 }
