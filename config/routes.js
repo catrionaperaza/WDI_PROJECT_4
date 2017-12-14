@@ -3,6 +3,7 @@ const dinners  = require('../controllers/dinners');
 const users = require('../controllers/users');
 const auth  = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
+const comments = require('../controllers/comments');
 
 router.route('/register')
   .post(auth.register);
@@ -31,8 +32,8 @@ router.route('/dinners/:id')
   .delete(dinners.delete);
 
 //COMMENTS
-// router.route('/dinners/:id/comments').post(comments.create);
-// router.route('/dinners/:id/comments/:commentId').delete(comments.delete);
+router.route('/dinners/:id/comments').post(comments.create);
+router.route('/dinners/:id/comments/:commentId').delete(comments.delete);
 
 router.all('/*', (req, res) => res.notFound());
 

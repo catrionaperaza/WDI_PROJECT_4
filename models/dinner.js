@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
 
+const commentSchema = new mongoose.Schema({
+  body: String,
+  createdBY: {type: mongoose.Schema.ObjectId, ref: 'User'}
+}, {
+  timestamps: true
+});
+
 const dinnerSchema = mongoose.Schema({
   title: { type: String, required: true },
   image: { type: String, required: true },
@@ -7,6 +14,7 @@ const dinnerSchema = mongoose.Schema({
   formatted_address: { type: String, required: true },
   avail_places: { type: Number, required: true },
   description: { type: String, required: true },
+  comments: [commentSchema],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   guests: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
 });
