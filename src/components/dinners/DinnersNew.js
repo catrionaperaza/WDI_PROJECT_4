@@ -70,7 +70,7 @@ class DinnersNew extends React.Component {
       <div className="container">
         <div className="row">
           <div className="page-banner col-md-12">
-            <h1>Create a Dinner Event </h1>
+            <h1>Add your Dinner</h1>
             <DinnersForm
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}

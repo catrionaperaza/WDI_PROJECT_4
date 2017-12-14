@@ -13,13 +13,12 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             className="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="Your Name"
             value={user.name}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
           <AutoComplete handleChange={handleLocationChange} />
         </div>
         <div className="form-group">
@@ -27,7 +26,7 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             type="text"
             className="form-control"
             name="email"
-            placeholder="Email"
+            placeholder="Email Address"
             value={user.email}
             onChange={handleChange}
           />
@@ -37,7 +36,7 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             type="text"
             className="form-control"
             name="image"
-            placeholder="image link"
+            placeholder="Image Link"
             value={user.image}
             onChange={handleChange}
           />
@@ -48,7 +47,7 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
             className="form-control"
             name="bio"
             id="bio"
-            placeholder="bio"
+            placeholder="Bio - so hosts can get to know you!"
             value={user.bio}
             onChange={handleChange}
           />
@@ -57,7 +56,7 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
           <input
             type="text"
             name="attendeeOrHost"
-            placeholder="Please list as Attendee or Host"
+            placeholder="Are you an Attendee or Host?"
             onChange={handleChange}
             value={user.attendeeOrHost}
             className="form-control"

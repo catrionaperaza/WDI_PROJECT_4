@@ -75,14 +75,21 @@ class DinnersEdit extends React.Component {
 
   render() {
     return (
-      <DinnersForm
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        dinner={this.state.dinner}
-        handleSelectChange={this.handleSelectChange}
-        handleLocationChange={this.handleLocationChange}
-        {...this.state}
-      />
+      <div className="container">
+        <div className="row">
+          <div className="page-banner col-md-12">
+            <h1>Edit your Dinner</h1>
+            <DinnersForm
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              dinner={this.state.dinner}
+              handleSelectChange={this.handleSelectChange}
+              handleLocationChange={this.handleLocationChange}
+              {...this.state}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 
