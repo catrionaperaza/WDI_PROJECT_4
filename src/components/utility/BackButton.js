@@ -1,13 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Button } from 'react-bootstrap';
 
 const BackButton = ({ history }) => {
   return (
     <div>
-      <Button onClick={history.goBack} className="small-button" bsStyle="primary">Go Back
-      </Button>
+      <button onClick={history.goBack} className="main-button" >Go Back
+      </button>
     </div>
   );
 };

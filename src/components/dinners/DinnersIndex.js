@@ -42,8 +42,14 @@ class DinnersIndex extends React.Component {
               Create Dinner Event
             </Link>}
           </div>
-          <Slider updateRadius={this.updateRadius} value={this.state.radius} />
-          <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
+          <div className="search">
+            <h4>Where do you want to look for a dinner event?</h4>
+            <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
+          </div>
+          <div className="slider">
+            <h4>How far are you willing to travel? Adjust the radius slider here: </h4>
+            <Slider updateRadius={this.updateRadius} value={this.state.radius} /></div>
+
           <GoogleMap userMarker={this.state.userMarker} dinners={this.state.dinners} radius={this.state.radius} />
           {this.state.dinners.map(dinner => {
             return(
@@ -51,8 +57,8 @@ class DinnersIndex extends React.Component {
                 <Link to={`/dinners/${dinner.id}`} >
                   <h2>Event: {dinner.title}</h2></Link>
                 {dinner.createdBy && <h2>Host: {dinner.createdBy.name}</h2>}
-                <h2>Number of places: {dinner.avail_places}</h2>
-                <h2>Description: {dinner.description}</h2>
+                <h3>Number of places: {dinner.avail_places}</h3>
+                <p>Description: {dinner.description}</p>
               </div>
             );
           })}

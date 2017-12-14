@@ -5,11 +5,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Source Sans Pro', sans-serif;
   background: #fff;
-  color: #333;
+  color: #6a737b;
 }
 
 header {
-  height: 80px;
+  height: 10px;
   position: relative;
 
   nav {
@@ -37,7 +37,8 @@ h1 {
   letter-spacing: -5px;
   font-family: 'Source Sans Pro', sans-serif;
   line-height: 145px;
-  color: grey;
+  color: #6a737b;
+  text-align:center;
 }
 
 h2 {
@@ -84,37 +85,41 @@ button, .main-button, .standard-button {
 }
 
 .standard-button {
-  background: #ccc;
-  border: 1px solid lighten(#ccc, 10%);
+  background: #6a737b;
+  border: 1px solid lighten(#6a737b, 10%);
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 150px;
 
   &:hover, &:focus {
     color: #fff;
-    background: darken(#ccc, 10%);
+    background: darken(#6a737b, 10%);
   }
 }
 
 .main-button {
-  background: #F31812;
-  border: 1px solid lighten(#F31812, 10%);
+  background: #F16664;
+  border: 1px solid lighten(#F16664, 10%);
+  border-radius: 5px;
 
   &:hover, &:focus {
     color: #fff;
-    background: darken(#F31812, 10%);
+    background: darken(#F16664, 10%);
   }
 }
 
 .save-button {
-  background: #378B2E;
-  border: 1px solid lighten(#378B2E, 10%);
+  background: #F16664;
+  border: 1px solid lighten(#F16664, 10%);
 
   &:hover, &:focus {
     color: #fff;
-    background: darken(#378B2E, 10%);
+    background: darken(#F16664, 10%);
   }
 }
 
 main {
-  padding-top: 50px;
+  // padding-top: 50px;
 }
 
 @media screen and (max-width: 750px) {
@@ -123,8 +128,53 @@ main {
   }
 }
 
+form {
+background-color: #ffffff;
+border: 3px solid #6a737b;
+border-radius: 0px;
+box-shadow: 7px 7px 0px #F16664;
+color: #6a737b;
+font-family: 'Source Sans Pro', sans-serif;
+font-size: 17px;
+margin: 30px auto;
+padding:40px 50px 110px 50px;
+width: 50%;
+background-size: 50%;
+background-repeat: repeat;
+
+  button {
+  border: 1px solid #6a737b;
+  margin-left: 0;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  }
+
+  input {
+  box-shadow: none;
+  width: 100%;
+  text-align: center;
+  }
+
+  .select {
+  text-align: center;
+  }
+}
 
 
 .google-map {
   height: 600px;
+  width: 100%;
+  border: 2px;
+  margin-bottom: 20px;
+}
+
+.search {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.slider {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
