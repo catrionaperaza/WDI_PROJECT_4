@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import Comment from '../utility/Comment';
+
 import Auth from '../../lib/Auth';
 
 class DinnersShow extends React.Component {
@@ -58,6 +60,7 @@ class DinnersShow extends React.Component {
             {' '}
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
             </button>}
+            <h4>Comments:</h4><Comment />
           </div>
         </div>
       </div>
