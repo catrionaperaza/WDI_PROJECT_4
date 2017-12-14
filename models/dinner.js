@@ -16,4 +16,12 @@ dinnerSchema.methods.belongsTo = function dinnerBelongTo(user) {
   return user.id === this.createdBy.toString();
 };
 
+dinnerSchema.virtual('shortDescription').get(function () {
+  return this.description.substr(0, 100) + '...';
+});
+
+dinnerSchema.virtual('shortTitle').get(function () {
+  return this.title.substr(0, 20) + '...';
+});
+
 module.exports = mongoose.model('Dinner', dinnerSchema);
