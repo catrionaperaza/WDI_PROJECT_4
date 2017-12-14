@@ -160,7 +160,10 @@ background-repeat: repeat;
 .google-map {
   height: 600px;
   width: 100%;
-  border: 2px;
+  border: 5px;
+  border-color: #F16664;
+  border-style: solid;
+  border-radius: 5px;
   margin-left: 15px;
   margin-right: 20px;
   margin-bottom: 30px;
