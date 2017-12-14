@@ -7,7 +7,6 @@ import 'bootstrap-css-only';
 
 import 'font-awesome/css/font-awesome.css';
 
-
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
 

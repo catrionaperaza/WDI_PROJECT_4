@@ -11,12 +11,6 @@ body {
 header {
   height: 10px;
   position: relative;
-
-  nav {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
 }
 
 a {
@@ -110,18 +104,6 @@ button, .main-button, .standard-button, .create-button {
   }
 }
 
-.create-button {
-  background: #F16664;
-  border: 1px solid lighten(#F16664, 10%);
-  border-radius: 5px;
-  margin-right: 10px;
-
-  &:hover, &:focus {
-    color: #fff;
-    background: darken(#F16664, 10%);
-  }
-}
-
 .save-button {
   background: #F16664;
   border: 1px solid lighten(#F16664, 10%);
@@ -133,7 +115,7 @@ button, .main-button, .standard-button, .create-button {
 }
 
 main {
-  // padding-top: 50px;
+
 }
 
 @media screen and (max-width: 750px) {
@@ -175,7 +157,6 @@ background-repeat: repeat;
   }
 }
 
-
 .google-map {
   height: 600px;
   width: 100%;
@@ -195,7 +176,16 @@ background-repeat: repeat;
   margin-bottom: 20px;
 }
 
-
 .nav {
   text-align: center;
+}
+
+.icons {
+display: flex;
+align-items: center;
+float: left;
+position: relative;
+text-align: center;
+width: 50%;
+padding: 0 60px;
 }

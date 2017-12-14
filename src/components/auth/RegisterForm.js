@@ -8,21 +8,20 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
         <input
           type="text"
           name="name"
-          placeholder="name"
+          placeholder="Your Name"
           onChange={handleChange}
           value={user.name}
           className="form-control"
         />
       </div>
       <div className="form-group">
-        <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
         <AutoComplete handleChange={handleLocationChange} />
       </div>
       <div className="form-group">
         <input
           type="text"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           onChange={handleChange}
           value={user.email}
           className="form-control"
@@ -52,7 +51,7 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
         <input
           type="text"
           name="image"
-          placeholder="image link"
+          placeholder="Image Link"
           onChange={handleChange}
           value={user.image}
           className="form-control"
@@ -62,7 +61,7 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
         <input
           type="text"
           name="bio"
-          placeholder="bio"
+          placeholder="Bio - so hosts can get to know you!"
           onChange={handleChange}
           value={user.bio}
           className="form-control"
@@ -72,7 +71,7 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
         <input
           type="text"
           name="attendeeOrHost"
-          placeholder="Please list as Attendee or Host"
+          placeholder="Are you an Attendee or Host?"
           onChange={handleChange}
           value={user.attendeeOrHost}
           className="form-control"

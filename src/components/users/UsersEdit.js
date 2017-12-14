@@ -18,11 +18,11 @@ class UsersEdit extends React.Component {
 
   componentDidMount() {
     Axios
-      .get(`/api/users/${this.props.match.params.id}`, {
-        headers: { Authorization: `Bearer ${Auth.getToken()}` }
-      })
-      .then(res => this.setState({ user: res.data }))
-      .catch(err => console.log(err));
+    .get(`/api/users/${this.props.match.params.id}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+    .then(res => this.setState({ user: res.data }))
+    .catch(err => console.log(err));
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -34,11 +34,11 @@ class UsersEdit extends React.Component {
     e.preventDefault();
 
     Axios
-      .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
-        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
-      })
-      .then(res => this.props.history.push(`/users/${res.data.id}`))
-      .catch(err => console.log(err));
+    .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
+      headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+    })
+    .then(res => this.props.history.push(`/users/${res.data.id}`))
+    .catch(err => console.log(err));
   }
 
   handleLocationChange = (name, formatted_address, location) => {
@@ -48,13 +48,20 @@ class UsersEdit extends React.Component {
 
   render() {
     return (
-      <UsersForm
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        user={this.state.user}
-        handleLocationChange={this.handleLocationChange}
-        {...this.state}
-      />
+      <div className="container">
+        <div className="row">
+          <div className="page-banner col-md-12">
+            <h1>Edit your Profile</h1>
+            <UsersForm
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              user={this.state.user}
+              handleLocationChange={this.handleLocationChange}
+              {...this.state}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 

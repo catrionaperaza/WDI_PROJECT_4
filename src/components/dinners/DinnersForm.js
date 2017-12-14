@@ -7,20 +7,19 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner,
     <div className="row">
       <div className="page-banner col-md-12">
       </div>
-      <form onSubmit={handleSubmit} className="col-md-6">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Event Title</label>
           <input
             type="text"
             className="form-control"
             id="title"
             name="title"
+            placeholder="Dinner Title"
             value={dinner.title}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label>Landmark or station near your home (please do not give your exact address for security reasons)</label>
           <AutoComplete handleChange={handleLocationChange} />
         </div>
         <div className="form-group">
@@ -28,34 +27,33 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner,
             type="text"
             className="form-control"
             name="image"
-            placeholder="image link"
+            placeholder="Image Link"
             value={dinner.image}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="avail_places">Available places: </label>
           <input
             type="Number"
             className="form-control"
             name="avail_places"
-            placeholder="available places"
+            placeholder="Available Places at Dinner"
             value={dinner.avail_places}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description">Dinner Event Description</label>
           <input
             type="text"
             className="form-control"
             id="description"
             name="description"
+            placeholder="Dinner Description"
             value={dinner.description}
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="select">
           <MultiSelect
             handleSelectChange={handleSelectChange}
             removeSelected={removeSelected}
