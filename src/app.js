@@ -4,9 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 // import './scss/debug.scss';
 import 'bootstrap-css-only';
-// import { Grid, Row, Col } from 'react-bootstrap';
+
 import 'font-awesome/css/font-awesome.css';
 
+import BackButton from './components/utility/BackButton';
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
 
@@ -19,9 +20,8 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <header>
-
-          </header>
+          <BackButton/>
+          <header></header>
           <main>
             <Routes />
             <Navbar />
