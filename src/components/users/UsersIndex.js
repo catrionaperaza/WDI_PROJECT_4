@@ -28,13 +28,14 @@ class UsersIndex extends React.Component {
       <div>
         <div className="row">
           {/* <SearchBox /> */}
+          <h1>Registered Users</h1>
           <GoogleMap1 userMarker={this.state.userMarker} users={this.state.users} />
           { this.state.users.map(user => {
             return(
-              <div key={user.id} >
+              <div key={user.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
                 { Auth.isAuthenticated() &&
                 <Link to={`/users/${user.id}`}>
-                  <h4>Name: {user.name}</h4></Link> }
+                  <h2>Name: {user.name}</h2></Link> }
                 <h4>Location: {user.formatted_address}</h4>
                 <h4>Attendee or Host: {user.attendeeOrHost}</h4>
               </div>

@@ -38,17 +38,19 @@ class DinnersIndex extends React.Component {
       <div>
         <div className="row">
           <div className="page-banner col-md-12">
-            { Auth.isAuthenticated() && <Link to="/dinners/new" className="create-button">
+            {/* { Auth.isAuthenticated() && <Link to="/dinners/new" className="create-button">
               Create Dinner Event
-            </Link>}
+            </Link>} */}
           </div>
+          <h1>Dinner Events</h1>
           <div className="search">
             <h4>Where do you want to look for a dinner event?</h4>
             <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           </div>
           <div className="slider">
             <h4>How far are you willing to travel? Adjust the radius slider here: </h4>
-            <Slider updateRadius={this.updateRadius} value={this.state.radius} /></div>
+            <Slider updateRadius={this.updateRadius} value={this.state.radius} />
+          </div>
 
           <GoogleMap userMarker={this.state.userMarker} dinners={this.state.dinners} radius={this.state.radius} />
           {this.state.dinners.map(dinner => {
