@@ -26,30 +26,40 @@ class Homepage extends React.Component {
       <div className="container">
         <div className="row">
           <div className="page-banner col-md-12">
-            <h1>Welcome to Ho Ho Hosts! </h1>
-            { Auth.isAuthenticated() &&  <h2><em>Please click the icons to search for dinners or attendees for your dinner</em></h2>}
-            { Auth.isAuthenticated() && <Link to={'/dinners'}><img src={'https://images.vexels.com/media/users/3/130189/isolated/preview/93b472a150245f86731d83b3f630ffb8-empty-dinner-plate-icon-by-vexels.png'} className="img-responsive icons" /></Link>}
-            { Auth.isAuthenticated() && <Link to={'/users'}><img src={'http://www.roughleyinsurance.com/wp-content/uploads/2011/11/ServiceIcon-Group.png'} className="img-responsive icons" /></Link>}
+            { !Auth.isAuthenticated() &&  <h2><em>Please login or register to search for dinners or guests for your dinner near you!</em></h2>
+              && <img src={'http://xmasblor.com/wp-content/uploads/2015/10/christmasweddingfood-14462908568gnk4.jpg'} className="image-hp" /> }
+            {' '}
+            { !Auth.isAuthenticated() &&  <img src={'https://www.englishandculture.com/hs-fs/hub/98462/file-984264747-jpg/images/how_to_talk_about_your_family_in_english.jpg?t=1433880746000'} className="image-hp" />}
           </div>
         </div>
 
-        { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
-          return(
-            <div key={dinner.id} >
-              <h2><Link to={`/dinners/${dinner.id}`}> Dinners I am hosting: {dinner.title}<img src={dinner.image} className="img-responsive image-tile hp" /></Link></h2>
-
+        <div className="container">
+          <div className="row">
+            <div className="page-banner col-md-12">
+              <h1>Welcome to Ho Ho Hosts! </h1>
+              { Auth.isAuthenticated() &&  <h2><em>Please click the icons to search for dinners or attendees for your dinner</em></h2>}
+              { Auth.isAuthenticated() && <Link to={'/dinners'}><img src={'https://images.vexels.com/media/users/3/130189/isolated/preview/93b472a150245f86731d83b3f630ffb8-empty-dinner-plate-icon-by-vexels.png'} className="img-responsive icons" /></Link>}
+              { Auth.isAuthenticated() && <Link to={'/users'}><img src={'http://www.roughleyinsurance.com/wp-content/uploads/2011/11/ServiceIcon-Group.png'} className="img-responsive icons" /></Link>}
             </div>
-          );
-        })
-        }
+          </div>
 
-        { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
-          return(
-            <div key={dinner.id} >
-              <h2><Link to={`/dinners/${dinner.id}`}><strong>Dinners I am Attending: {dinner.title}<img src={dinner.image}  className="img-responsive" /></strong></Link></h2>
-            </div>
-          );
-        })}
+          { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
+            return(
+              <div key={dinner.id} >
+                { Auth.isAuthenticated() && <h2><Link to={`/dinners/${dinner.id}`}> Dinners I am hosting: {dinner.title}<img src={dinner.image} className="image hp" /></Link></h2>}
+              </div>
+            );
+          })
+          }
+
+          { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
+            return(
+              <div key={dinner.id} >
+                { Auth.isAuthenticated() && <h2><Link to={`/dinners/${dinner.id}`}><strong>Dinners I am Attending: {dinner.title}<img src={dinner.image}  className="image hp" /></strong></Link></h2>}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

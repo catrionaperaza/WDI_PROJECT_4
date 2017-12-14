@@ -55,16 +55,11 @@ hr {
 
 .image-tile {
 
-
   img {
     width: 100%;
     border-radius: 2px;
     padding: 4px;
     background: #fafafa;
-
-    hp {
-      margin: 30px;
-    }
   }
 }
 
@@ -195,7 +190,27 @@ background-repeat: repeat;
 
 .icons {
 display:inline-block;
-float: left;
 text-align: center;
-width: 50%;
+width: 250px;
+height: 250px;
+padding: 10px;
+margin: 100px;
+}
+
+.hp {
+
+}
+
+.image-hp {
+  display:inline-block;
+  float: left;
+  padding: 20px;
+  margin: 30px;
+  border: 5px;
+  border-color: #F16664;
+  border-style: solid;
+  border-radius: 5px;
+  text-align: center;
+  width: 500px;
+  height: 350px;
 }
