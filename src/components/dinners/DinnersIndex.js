@@ -49,10 +49,12 @@ class DinnersIndex extends React.Component {
           </div>
           <div className="slider">
             <h4>How far are you willing to travel? Adjust the radius slider here: </h4>
+            <br></br>
             <Slider updateRadius={this.updateRadius} value={this.state.radius} />
           </div>
 
-          <GoogleMap userMarker={this.state.userMarker} dinners={this.state.dinners} radius={this.state.radius} />
+          <GoogleMap userMarker={this.state.userMarker} markers={this.state.dinners} radius={this.state.radius} markerType="dinner" />
+
           {this.state.dinners.map(dinner => {
             return(
               <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">

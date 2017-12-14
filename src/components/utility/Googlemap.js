@@ -23,7 +23,15 @@ class GoogleMap extends React.Component {
       styles: mapStyles
     });
 
-    this.userMarker = new google.maps.Marker({ map: this.map });
+    const userMarkerImage = {
+      url: 'https://uploads.knightlab.com/storymapjs/532264b9873bd052bea5c420d2249cfc/potential-medical-marijuana-shops/_images/pin_1-512.png',
+      scaledSize: new google.maps.Size(50,50)
+    };
+
+    this.userMarker = new google.maps.Marker({
+      map: this.map,
+      icon: userMarkerImage
+    });
   }
 
   componentWillUpdate(nextProps) {
@@ -39,31 +47,41 @@ class GoogleMap extends React.Component {
       this.filterMarkers();
     }
 
-    const dinnerImage = {
+    const image = this.props.markerType === 'dinner' ? {
       url: 'http://www.pvhc.net/img36/bmnfxduyaeokrqglccrw.png',
+      scaledSize: new google.maps.Size(65,63)
+    } : {
+      url: 'https://cdn3.iconfinder.com/data/icons/maps-and-navigation-7/65/68-512.png',
       scaledSize: new google.maps.Size(65,63)
     };
 
-    if(nextProps.dinners.length !== this.props.dinners.length) {
-      this.markers = nextProps.dinners.map(dinner => {
-        const Marker = new google.maps.Marker({
+    if(nextProps.markers.length !== this.props.markers.length) {
+      this.markers = nextProps.markers.map(data => {
+        const marker = new google.maps.Marker({
           map: this.map,
-          position: dinner.location,
+          position: data.location,
           animation: google.maps.Animation.DROP,
-          icon: dinnerImage
+          icon: image
         });
 
-        this.bounds.extend(dinner.location);
+        this.bounds.extend(data.location);
 
-        Marker.addListener('click', () => {
-          this.infoWindow.setContent(`
-            <a href=${`/dinners/${dinner.id}`} />
-            <p>${dinner.title}, hosted by ${dinner.createdBy.name}</p>
-            `);
-          this.infoWindow.open(this.map, Marker);
+        const content = this.props.markerType === 'dinner' ? `
+          <a href=${`/dinners/${data.id}`} />
+            <p>${data.title}, hosted by ${data.createdBy.name}</p>
+          </a>
+        ` : `
+        <a href=${`/users/${data.id}`} />
+          <p>${data.name}</p>
+        </a>
+        `;
+
+        marker.addListener('click', () => {
+          this.infoWindow.setContent(content);
+          this.infoWindow.open(this.map, marker);
         });
 
-        return Marker;
+        return marker;
       });
     }
 
