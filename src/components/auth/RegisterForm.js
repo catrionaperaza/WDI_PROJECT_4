@@ -77,7 +77,7 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
           className="form-control"
         />
       </div>
-      <button className="btn btn-primary">Submit</button>
+      <button className="save-button">Save</button>
     </form>
   );
 };

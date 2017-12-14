@@ -9,7 +9,7 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
         <input
           type="text"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           onChange={handleChange}
           value={user.email}
           className="form-control"
@@ -25,7 +25,7 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           className="form-control"
         />
       </div>
-      <button className="btn btn-primary">Submit</button>
+      <button className="save-button">Save</button>
     </form>
   );
 };
