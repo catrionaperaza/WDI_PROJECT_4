@@ -27,8 +27,7 @@ class UsersIndex extends React.Component {
     return (
       <div>
         <div className="row">
-          {/* <SearchBox /> */}
-          <h1>Registered Users</h1>
+          <h1>Guests and Hosts</h1>
           <GoogleMap1 userMarker={this.state.userMarker} users={this.state.users} />
           { this.state.users.map(user => {
             return(
@@ -37,7 +36,7 @@ class UsersIndex extends React.Component {
                 <Link to={`/users/${user.id}`}>
                   <h2>Name: {user.name}</h2></Link> }
                 <h4>Location: {user.formatted_address}</h4>
-                <h4>Attendee or Host: {user.attendeeOrHost}</h4>
+                <h4>Attendee or Host: {user.guestOrHost}</h4>
               </div>
             );
           })}

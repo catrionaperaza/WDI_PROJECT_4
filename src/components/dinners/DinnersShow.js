@@ -8,7 +8,7 @@ class DinnersShow extends React.Component {
   state = {
     dinner: {}
   }
- 
+
   componentWillMount() {
     Axios
       .get(`/api/dinners/${this.props.match.params.id}`, {
@@ -46,17 +46,17 @@ class DinnersShow extends React.Component {
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
             { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="standard-button">Go to the host profile
             </Link>}
-            <h4>Attendees:</h4> { this.state.dinner.attendees && this.state.dinner.attendees.map(attendee => {
+            <h4>Guests:</h4> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return(
-                <div key={attendee.id} >
-                  <h4><Link to={`/users/${attendee.id}`}><strong> {attendee.name}</strong></Link></h4>
+                <div key={guest.id} >
+                  <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
                 </div>
               );
             })}
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
             </Link>}
             {' '}
-            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="main-button" onClick={this.deleteDinner}>Delete your dinner
+            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
             </button>}
           </div>
         </div>

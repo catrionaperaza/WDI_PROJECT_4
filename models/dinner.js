@@ -8,7 +8,7 @@ const dinnerSchema = mongoose.Schema({
   avail_places: { type: Number, required: true },
   description: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
+  guests: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
 });
 
 dinnerSchema.methods.belongsTo = function dinnerBelongTo(user) {

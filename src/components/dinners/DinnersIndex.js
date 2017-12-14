@@ -38,9 +38,6 @@ class DinnersIndex extends React.Component {
       <div>
         <div className="row">
           <div className="page-banner col-md-12">
-            {/* { Auth.isAuthenticated() && <Link to="/dinners/new" className="create-button">
-              Create Dinner Event
-            </Link>} */}
           </div>
           <h1>Dinner Events</h1>
           <div className="search">

@@ -12,17 +12,17 @@ class UsersEdit extends React.Component {
       email: '',
       image: '',
       bio: '',
-      attendeeOrHost: ''
+      guestOrHost: ''
     }
   };
 
   componentDidMount() {
     Axios
-    .get(`/api/users/${this.props.match.params.id}`, {
-      headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    })
-    .then(res => this.setState({ user: res.data }))
-    .catch(err => console.log(err));
+      .get(`/api/users/${this.props.match.params.id}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(res => this.setState({ user: res.data }))
+      .catch(err => console.log(err));
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -34,11 +34,11 @@ class UsersEdit extends React.Component {
     e.preventDefault();
 
     Axios
-    .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
-      headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
-    })
-    .then(res => this.props.history.push(`/users/${res.data.id}`))
-    .catch(err => console.log(err));
+      .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+      })
+      .then(res => this.props.history.push(`/users/${res.data.id}`))
+      .catch(err => console.log(err));
   }
 
   handleLocationChange = (name, formatted_address, location) => {

@@ -13,10 +13,10 @@ class DinnersNew extends React.Component {
       image: '',
       avail_places: '',
       description: '',
-      attendees: []
+      guests: []
     },
     removeSelected: true,
-    attendees: [],
+    guests: [],
     value: []
   };
 
@@ -26,10 +26,10 @@ class DinnersNew extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(res => {
-        const attendees = res.data.map(attendee => {
-          return { label: attendee.name, value: attendee.id };
+        const guests = res.data.map(guest => {
+          return { label: guest.name, value: guest.id };
         });
-        this.setState({attendees});
+        this.setState({guests});
       })
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
@@ -47,9 +47,9 @@ class DinnersNew extends React.Component {
   handleSubmit =(e) => {
     e.preventDefault();
 
-    const dinnerAttendees = this.state.value.map(attendee => attendee.value);
-    console.log(dinnerAttendees);
-    const dinner = Object.assign({}, this.state.dinner, { attendees: dinnerAttendees });
+    const dinnerGuests = this.state.value.map(guest => guest.value);
+    console.log(dinnerGuests);
+    const dinner = Object.assign({}, this.state.dinner, { attendees: dinnerGuests });
     this.setState({ dinner }, () => {
 
       Axios

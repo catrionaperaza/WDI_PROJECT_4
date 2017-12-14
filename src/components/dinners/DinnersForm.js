@@ -2,7 +2,7 @@ import React from 'react';
 import AutoComplete from '../utility/AutoComplete';
 import MultiSelect from '../utility/MultiSelect';
 
-function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner, handleSelectChange, removeSelected, attendees, value}) {
+function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner, handleSelectChange, removeSelected, guests, value}) {
   return (
     <div className="row">
       <div className="page-banner col-md-12">
@@ -57,7 +57,7 @@ function DinnersForm({ handleSubmit, handleChange, handleLocationChange, dinner,
           <MultiSelect
             handleSelectChange={handleSelectChange}
             removeSelected={removeSelected}
-            options={attendees}
+            options={guests}
             value={value}
           />
         </div>

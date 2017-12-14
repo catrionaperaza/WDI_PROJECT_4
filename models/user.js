@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   image: { type: String, required: true },
   bio: { type: String, required: true },
-  attendeeOrHost: { type: String, required: true }
+  guestOrHost: { type: String, required: true }
 });
 
 userSchema
@@ -23,7 +23,7 @@ userSchema
   .virtual('dinnersAttending', {
     ref: 'Dinner',
     localField: '_id',
-    foreignField: 'attendees'
+    foreignField: 'guests'
   });
 
 userSchema

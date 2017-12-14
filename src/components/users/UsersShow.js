@@ -32,7 +32,7 @@ class UsersShow extends React.Component {
       <div className="container">
         <div className="row">
           <div className="page-banner col-md-12">
-            <h1>Dinner {this.state.user.attendeeOrHost} Profile</h1>
+            <h1>Dinner {this.state.user.guestOrHost} Profile</h1>
           </div>
         </div>
         <div className="row">
@@ -40,7 +40,7 @@ class UsersShow extends React.Component {
             <img src={this.state.user.image} className="img-responsive" />
           </div>
           <div className="col-md-6">
-            <h2>Name of {this.state.user.attendeeOrHost}: {this.state.user.name}</h2>
+            <h2>Name of {this.state.user.guestOrHost}: {this.state.user.name}</h2>
             <h4>Location: {this.state.user.formatted_address}</h4>
             <h4>Bio: {this.state.user.bio}</h4>
             <h4>Contact Details: {this.state.user.email}</h4>

@@ -70,10 +70,10 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
       <div className="form-group">
         <input
           type="text"
-          name="attendeeOrHost"
-          placeholder="Are you an Attendee or Host?"
+          name="guestOrHost"
+          placeholder="Are you a Guest or a Host?"
           onChange={handleChange}
-          value={user.attendeeOrHost}
+          value={user.guestOrHost}
           className="form-control"
         />
       </div>
