@@ -32,8 +32,8 @@ router.route('/dinners/:id')
   .delete(dinners.delete);
 
 //COMMENTS
-router.route('/dinners/:id/comments').post(comments.create);
-router.route('/dinners/:id/comments/:commentId').delete(comments.delete);
+router.route('/dinners/:id/comments').post(secureRoute, comments.create);
+router.route('/dinners/:id/comments/:commentId').delete(secureRoute, comments.delete);
 
 router.all('/*', (req, res) => res.notFound());
 
