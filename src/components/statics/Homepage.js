@@ -29,8 +29,8 @@ class Homepage extends React.Component {
           <div className="page-banner col-md-12">
             <h1>Welcome to Ho Ho Hosts! </h1>
             { Auth.isAuthenticated() &&  <h2><em>Please click the icons to search for dinners or attendees for your dinner</em></h2>}
-            { Auth.isAuthenticated() && <Link to={'/dinners'}><img src={'http://www.pvhc.net/img36/bmnfxduyaeokrqglccrw.png'} className="img-responsive icons" /></Link>}
-            { Auth.isAuthenticated() && <Link to={'/users'}><img src={'https://cdn3.iconfinder.com/data/icons/maps-and-navigation-7/65/68-512.png'} className="img-responsive icons" /></Link>}
+            { Auth.isAuthenticated() && <Link to={'/dinners'}><img src={'https://images.vexels.com/media/users/3/130189/isolated/preview/93b472a150245f86731d83b3f630ffb8-empty-dinner-plate-icon-by-vexels.png'} className="img-responsive icons" /></Link>}
+            { Auth.isAuthenticated() && <Link to={'/users'}><img src={'http://www.roughleyinsurance.com/wp-content/uploads/2011/11/ServiceIcon-Group.png'} className="img-responsive icons" /></Link>}
           </div>
         </div>
 
