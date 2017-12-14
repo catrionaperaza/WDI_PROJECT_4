@@ -15,6 +15,8 @@ const Navbar = ({ history }) => {
 
   return(
     <nav className="nav">
+      { Auth.isAuthenticated() && <BackButton/> && <Link to="" className="main-button">Back</Link>}
+      {' '}
       { !Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
       {' '}
       { !Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
