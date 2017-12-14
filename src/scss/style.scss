@@ -11,12 +11,6 @@ body {
 header {
   height: 10px;
   position: relative;
-
-  nav {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
 }
 
 a {
@@ -101,6 +95,8 @@ button, .main-button, .standard-button {
   background: #F16664;
   border: 1px solid lighten(#F16664, 10%);
   border-radius: 5px;
+  margin-right: 10px;
+  width: 150px;
 
   &:hover, &:focus {
     color: #fff;
@@ -119,7 +115,7 @@ button, .main-button, .standard-button {
 }
 
 main {
-  // padding-top: 50px;
+
 }
 
 @media screen and (max-width: 750px) {
@@ -161,7 +157,6 @@ background-repeat: repeat;
   }
 }
 
-
 .google-map {
   height: 600px;
   width: 100%;
@@ -179,40 +174,16 @@ background-repeat: repeat;
   margin-bottom: 20px;
 }
 
-
 .nav {
   text-align: center;
 }
 
-form {
-background-color: #ffffff;
-border: 3px solid #6a737b;
-border-radius: 0px;
-box-shadow: 7px 7px 0px #F16664;
-color: #6a737b;
-font-family: 'Source Sans Pro', sans-serif;
-font-size: 17px;
-margin: 30px auto;
-padding:40px 50px 110px 50px;
+.icons {
+display: flex;
+align-items: center;
+float: left;
+position: relative;
+text-align: center;
 width: 50%;
-background-size: 50%;
-background-repeat: repeat;
-
-  button {
-  border: 1px solid #6a737b;
-  margin-left: 0;
-  margin-top: 20px;
-  padding: 10px;
-  width: 100%;
-  }
-
-  input {
-  box-shadow: none;
-  width: 100%;
-  text-align: center;
-  }
-
-  .select {
-  text-align: center;
-  }
+padding: 0 60px;
 }

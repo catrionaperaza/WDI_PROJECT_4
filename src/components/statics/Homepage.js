@@ -28,25 +28,12 @@ class Homepage extends React.Component {
         <div className="row">
           <div className="page-banner col-md-12">
             <h1>Welcome to Ho Ho Hosts! </h1>
-            <h2>Here are some of our success stories of dinners shared and enjoyed over Christmas....</h2>
-            { Auth.isAuthenticated() && <Link to={'/users'}><h3>See profiles, both attendees and hosts near you! </h3></Link>}
+            { Auth.isAuthenticated() && <h2><Link to={'/users'}>Search for Dinner Attendees and Hosts near you!<img src={'https://cdn3.iconfinder.com/data/icons/maps-and-navigation-7/65/68-512.png'} className="img-responsive icons" /></Link></h2>}
             { '' }
-            { Auth.isAuthenticated() && <Link to={'/dinners'}><h3>See all dinner events near you!</h3></Link>}
+            { Auth.isAuthenticated() && <h2><Link to={'/dinners'}>Search for Dinners hosted near you!<img src={'http://www.pvhc.net/img36/bmnfxduyaeokrqglccrw.png'} className="img-responsive icons" /></Link></h2>}
             { '' }
           </div>
         </div>
-
-        {/* <div className="row">
-          <div className="image-tile col-md-4 col-sm-6 col-xs-12">
-            <img src="../assets/1.jpg" className="img-responsive" />
-          </div>
-          <div className="image-tile col-md-4 col-sm-6 col-xs-12">
-            <img src="../assets/2.jpg" className="img-responsive" />
-          </div>
-          <div className="image-tile col-md-4 col-sm-6 col-xs-12">
-            <img src="../assets/3.jpg" className="img-responsive" />
-          </div>
-        </div> */}
 
         { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
           return(
