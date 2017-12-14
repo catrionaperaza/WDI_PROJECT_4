@@ -38,7 +38,7 @@ h1 {
 h2 {
   margin: -18px 0px 0 0px;
   font-size: 30px;
-  text-align: center;
+  color: darken(#F16664, 10%);
 
   span {
     font-size: 22px;
@@ -54,7 +54,7 @@ hr {
 }
 
 .image-tile {
-  margin: 30px;
+
 
   img {
     width: 100%;
@@ -182,6 +182,7 @@ background-repeat: repeat;
 
 .nav {
   text-align: center;
+  margin-top: 20px;
 }
 
 .icons {
