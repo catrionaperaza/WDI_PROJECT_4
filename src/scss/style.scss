@@ -54,13 +54,15 @@ hr {
 }
 
 .image-tile {
-  margin: 30px;
-
   img {
     width: 100%;
     border-radius: 2px;
     padding: 4px;
     background: #fafafa;
+
+    hp {
+      margin: 30px;
+    }
   }
 }
 
@@ -89,6 +91,10 @@ button, .main-button, .standard-button, .create-button {
   &:hover, &:focus {
     color: #fff;
     background: darken(#6a737b, 10%);
+
+    .loggedout {
+      background: red;
+    }
   }
 }
 
