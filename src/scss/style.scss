@@ -37,7 +37,8 @@ h1 {
 
 h2 {
   margin: -18px 0px 0 0px;
-  font-size: 20px;
+  font-size: 30px;
+  text-align: center;
 
   span {
     font-size: 22px;
@@ -53,7 +54,7 @@ hr {
 }
 
 .image-tile {
-  margin-bottom: 30px;
+  margin: 30px;
 
   img {
     width: 100%;
@@ -181,11 +182,8 @@ background-repeat: repeat;
 }
 
 .icons {
-display: flex;
-align-items: center;
+display:inline-block;
 float: left;
-position: relative;
 text-align: center;
 width: 50%;
-padding: 0 60px;
 }
