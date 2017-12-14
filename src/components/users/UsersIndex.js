@@ -38,11 +38,11 @@ class UsersIndex extends React.Component {
         <div className="row">
           <h1>Registered Users</h1>
           <div className="search">
-            <h4>Where do you want to look for a dinner event?</h4>
+            <h4>Where do you want to look for guests?</h4>
             <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           </div>
           <div className="slider">
-            <h4>How far are you willing to travel? Adjust the radius slider here: </h4>
+            <h4>Guests proximity to your dinner event. Adjust the radius slider here: </h4>
             <br></br>
             <Slider updateRadius={this.updateRadius} value={this.state.radius} />
           </div>
