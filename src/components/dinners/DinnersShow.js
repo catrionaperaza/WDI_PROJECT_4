@@ -8,7 +8,7 @@ class DinnersShow extends React.Component {
   state = {
     dinner: {}
   }
-
+ 
   componentWillMount() {
     Axios
       .get(`/api/dinners/${this.props.match.params.id}`, {
