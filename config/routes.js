@@ -30,6 +30,10 @@ router.route('/dinners/:id')
   .put(dinners.update)
   .delete(dinners.delete);
 
+//COMMENTS
+router.route('/dinners/:id/comments').post(comments.create);
+router.route('/dinners/:id/comments/:commentId').delete(comments.delete);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
