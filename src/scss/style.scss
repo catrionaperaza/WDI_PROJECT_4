@@ -38,7 +38,7 @@ h1 {
 h2 {
   margin: -18px 0px 0 0px;
   font-size: 30px;
-  text-align: center;
+  color: darken(#F16664, 10%);
 
   span {
     font-size: 22px;
@@ -54,6 +54,8 @@ hr {
 }
 
 .image-tile {
+
+
   img {
     width: 100%;
     border-radius: 2px;
@@ -167,7 +169,10 @@ background-repeat: repeat;
 .google-map {
   height: 600px;
   width: 100%;
-  border: 2px;
+  border: 5px;
+  border-color: #F16664;
+  border-style: solid;
+  border-radius: 5px;
   margin-left: 15px;
   margin-right: 20px;
   margin-bottom: 30px;
@@ -185,6 +190,7 @@ background-repeat: repeat;
 
 .nav {
   text-align: center;
+  margin-top: 20px;
 }
 
 .icons {

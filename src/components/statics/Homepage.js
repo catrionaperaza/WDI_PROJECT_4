@@ -34,19 +34,11 @@ class Homepage extends React.Component {
           </div>
         </div>
 
-        {' '}
-        {' '}
-        {' '}
-        {' '}
-
         { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
           return(
             <div key={dinner.id} >
               <h2><Link to={`/dinners/${dinner.id}`}> Dinners I am hosting: {dinner.title}<img src={dinner.image} className="img-responsive image-tile hp" /></Link></h2>
 
-              {' '}
-              {' '}
-              {' '}
             </div>
           );
         })
