@@ -39,20 +39,13 @@ class UsersShow extends React.Component {
           <div className="image-tile col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <img src={this.state.user.image} className="img-responsive" />
           </div>
-<<<<<<< HEAD
+
           <div className="col-md-6">
             <h3>{this.state.user.guestOrHost}: <span>{this.state.user.name}</span></h3>
             <h3>Location: <span>{this.state.user.formatted_address}</span></h3>
             <h3>Bio: <span>{this.state.user.bio}</span></h3>
             <h3>Contact Details: <span>{this.state.user.email}</span></h3>
-=======
-          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h2>Name of {this.state.user.guestOrHost}: {this.state.user.name}</h2>
-            <h3>Location: {this.state.user.formatted_address}</h3>
-            <h3>Bio: {this.state.user.bio}</h3>
-            <h3>Contact Details: {this.state.user.email}</h3>
-            {console.log(this.state.user)}
->>>>>>> fe76f7592c468165080f73d3b121d60f80827482
+
             { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
               return(
                 <div key={dinner.id} >

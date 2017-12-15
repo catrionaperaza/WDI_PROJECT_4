@@ -24,14 +24,14 @@ class DinnersShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-  deleteDinner = () => {
-    Axios
-      .delete(`/api/dinners/${this.props.match.params.id}`, {
-        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
-      })
-      .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err));
-  }
+        deleteDinner = () => {
+          Axios
+            .delete(`/api/dinners/${this.props.match.params.id}`, {
+              headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+            })
+            .then(() => this.props.history.push('/'))
+            .catch(err => console.log(err));
+        }
 
   handleChange = ({ target: { name, value }}) => {
     const comment = Object.assign({}, this.state.comment, { [name]: value });
@@ -70,15 +70,7 @@ class DinnersShow extends React.Component {
             <h3>Number of places: <span>{this.state.dinner.avail_places}</span></h3>
             <h3>Description: <span>{this.state.dinner.description}</span></h3>
             <h3>Host: </h3> {this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`}><h3><span>{this.state.dinner.createdBy.name}</span></h3></Link>}
-            {/* { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="host-button">Go to the host profile
-            </Link>} */}
-            <h3>Guests: </h3>{ this.state.dinner.guests && this.state.dinner.guests.map(guest => {
-              return(
-                <div key={guest.id} >
-                  <h3><Link to={`/users/${guest.id}`}><span> {guest.name}</span></Link></h3>
-                </div>
-              );
-            })}
+
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
             </Link>}
             {' '}
@@ -87,10 +79,10 @@ class DinnersShow extends React.Component {
           </div>
         </div>
         <div className="row">
-          <h4>Guests:</h4> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+          <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
             return(
               <div key={guest.id} >
-                <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
               </div>
             );
           })}
@@ -102,29 +94,27 @@ class DinnersShow extends React.Component {
         </div>
 
         <div className="row">
-          <div className="image-tile col-md-4">
-            <h3>Comments:</h3>
-            { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
-              return (
-                <div key={guest.id} >
-                  <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
-                </div>
-              );
-            })}
-          </div>
-          { this.state.dinner.comments &&
-            <div className="col-md-8">
-              { this.state.dinner.comments.map(comment => {
-                return (
-                  <div key={comment.id}>
-                    <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
-                    <p>{ comment.body }</p>
-                    <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
-                  </div>
-                );
-              })}
-            </div>}
+          <h3>Comments:</h3>
+          { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            return (
+              <div key={guest.id} >
+                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
+              </div>
+            );
+          })}
         </div>
+        { this.state.dinner.comments &&
+      <div className="col-md-8">
+        { this.state.dinner.comments.map(comment => {
+          return (
+            <div key={comment.id}>
+              <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
+              <p>{ comment.body }</p>
+              <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
+            </div>
+          );
+        })}
+      </div>}
         <div className="row">
           <div className="col-md-12">
             <DinnerCommentForm
