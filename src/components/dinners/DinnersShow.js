@@ -99,6 +99,7 @@ class DinnersShow extends React.Component {
             return (
               <div key={guest.id} >
                 <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
+                <img src={guest.image} className="img-responsive" />
               </div>
             );
           })}
