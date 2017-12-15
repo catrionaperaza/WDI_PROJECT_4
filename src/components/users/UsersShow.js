@@ -36,10 +36,10 @@ class UsersShow extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="image-tile col-md-6 col-sm-6 col-xs-12">
+          <div className="image-tile col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <img src={this.state.user.image} className="img-responsive" />
           </div>
-          <div className="col-md-6">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h2>Name of {this.state.user.guestOrHost}: {this.state.user.name}</h2>
             <h3>Location: {this.state.user.formatted_address}</h3>
             <h3>Bio: {this.state.user.bio}</h3>

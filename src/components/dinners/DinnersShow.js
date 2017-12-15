@@ -57,16 +57,17 @@ class DinnersShow extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="page-banner col-md-12">
+          <div className="page-banner col-lg-12 col-md-12">
             <h1> Dinner </h1>
           </div>
         </div>
         <div className="row">
-          <div className="image-tile col-md-6">
+          <div className="image-tile col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <img src={this.state.dinner.image} className="img-responsive" />
           </div>
-          <div className="col-md-6">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h2>Event: {this.state.dinner.title}</h2>
+            <br></br>
             <p>Number of places: {this.state.dinner.avail_places}</p>
             <p>Description: {this.state.dinner.description}</p>
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
@@ -88,8 +89,8 @@ class DinnersShow extends React.Component {
         </div>
 
         <div className="row">
-          <div className="image-tile col-md-4">
-            {/* <h4>Comments:</h4> */}
+          <div className="image-tile col-md-12">
+            <h3>Comments:</h3>
             { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return (
                 <div key={guest.id} >
@@ -103,9 +104,9 @@ class DinnersShow extends React.Component {
               { this.state.dinner.comments.map(comment => {
                 return (
                   <div key={comment.id}>
-                    <h6>Comment by: {comment.createdBy.name} </h6>
+                    <h5>Comment by: {comment.createdBy.name} </h5>
                     <p>{ comment.body }</p>
-                    <h6>Comment created at: { comment.createdAt }</h6>
+                    <h5>Comment created at: { comment.createdAt }</h5>
                   </div>
                 );
               })}
