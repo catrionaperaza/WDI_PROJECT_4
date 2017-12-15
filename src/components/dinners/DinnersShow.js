@@ -57,7 +57,7 @@ class DinnersShow extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="page-banner col-lg-12 col-md-12">
+          <div className="page-banner col-md-12">
             <h1> Dinner </h1>
           </div>
         </div>
@@ -67,58 +67,60 @@ class DinnersShow extends React.Component {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h2>Event: {this.state.dinner.title}</h2>
-            <br></br>
             <p>Number of places: {this.state.dinner.avail_places}</p>
             <p>Description: {this.state.dinner.description}</p>
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
             { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="host-button">Go to the host profile
             </Link>}
-          <
-            <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
-              return(
-                <div key={guest.id} >
-                  <h3><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h3>
-                </div>
-              );
-            })}
-            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
-            </Link>}
-            {' '}
-            { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
-            </button>}
           </div>
+        </div>
+        <div className="row">
+          <h4>Guests:</h4> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            return(
+              <div key={guest.id} >
+                <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+              </div>
+            );
+          })}
+          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
+          </Link>}
+          {' '}
+          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
+          </button>}
         </div>
 
         <div className="row">
-          <div className="image-tile col-md-12">
-            <h3>Comments:</h3>
-            { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+          {/* <div className="image-tile col-lg-12 col-md-12 col-sm-12 col-xs-12"> */}
+          <h4>Comments:</h4>
+          { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            return (
+              <div key={guest.id} >
+                <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+              </div>
+            );
+          })}
+          {/* </div> */}
+          { this.state.dinner.comments &&
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            { this.state.dinner.comments.map(comment => {
               return (
-                <div key={guest.id} >
-                  <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+                <div key={comment.id}>
+                  <h6>Comment by: {comment.createdBy.name} </h6>
+                  <p>{ comment.body }</p>
+                  <h6>Comment created at: { comment.createdAt }</h6>
                 </div>
               );
             })}
-          </div>
-          { this.state.dinner.comments &&
-            <div className="col-md-8">
-              { this.state.dinner.comments.map(comment => {
-                return (
-                  <div key={comment.id}>
-                    <h5>Comment by: {comment.createdBy.name} </h5>
-                    <p>{ comment.body }</p>
-                    <h5>Comment created at: { comment.createdAt }</h5>
-                  </div>
-                );
-              })}
-            </div>}
+          </div>}
         </div>
-        <div className="col-md-12">
-          <DinnerCommentForm
-            comment={this.state.comment}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
+        <div className="row">
+          <div className="col-md-12">
+            <DinnerCommentForm
+              comment={this.state.comment}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
         </div>
       </div>
     );
