@@ -89,7 +89,7 @@ class DinnersShow extends React.Component {
 
         <div className="row">
           <div className="image-tile col-md-4">
-            <h4>Comments:</h4>
+            {/* <h4>Comments:</h4> */}
             { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return (
                 <div key={guest.id} >
