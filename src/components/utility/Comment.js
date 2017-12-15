@@ -13,9 +13,8 @@ class Comment extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.state.comment);
     Axios
-      .get(`/api/dinners/${this.props.dinnerId}`)
+      .get(/api/dinners/${this.props.match.params.id}
       .then(res => this.setState({ comment: res.data }))
       .catch(err => console.log(err));
 

@@ -54,7 +54,7 @@ class UsersIndex extends React.Component {
                 <Link to={`/users/${user.id}`}>
                   <h2>Name: {user.name}</h2></Link> }
                 <h4>Location: {user.formatted_address}</h4>
-                <h4>Attendee or Host: {user.guestOrHost}</h4>
+                <h4>Guest or Host: {user.guestOrHost}</h4>
               </div>
             );
           })}

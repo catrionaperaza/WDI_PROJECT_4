@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import Comment from '../utility/Comment';
+// import Comment from '../utility/Comment';
 
 import Auth from '../../lib/Auth';
 
@@ -28,6 +28,17 @@ class DinnersShow extends React.Component {
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err));
   }
+
+  createComment = () => {
+    Axios
+      .post(`/api/dinners/${this.props.match.params.id}`, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+      })
+      .then(() => this.setState({ comment: res.data.body}))//ref to new state with historical comments
+      .catch(err=> console.log(err));
+  }
+
+  //Add delete comment
 
   render() {
     return (
@@ -60,9 +71,27 @@ class DinnersShow extends React.Component {
             {' '}
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
             </button>}
-            <h4>Comments:</h4><Comment />
           </div>
         </div>
+
+        <div className="row">
+          <div className="image-tile col-md-4">
+            { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+              return(
+                <div key={guest.id.image} >
+                  <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+                </div>
+              );
+          </div>
+          <div className="col-md-8">
+            <h4>Comments:</h4>
+            <h6>Comment by: {this.dinner.comment.createdBy.currentUser} </h6>
+            <p>{ this.dinner.comment.id.body }</p>
+            <h6>Comment created at: { this.dinner.comment.id.timestamp }</h6>
+
+          </div>
+        </div>
+
       </div>
     );
   }
