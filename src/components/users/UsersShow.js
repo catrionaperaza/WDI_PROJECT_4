@@ -42,7 +42,7 @@ class UsersShow extends React.Component {
           <div className="col-md-6">
             <h2>Name of {this.state.user.guestOrHost}: {this.state.user.name}</h2>
             <h3>Location: {this.state.user.formatted_address}</h3>
-            <h3>Bio: {this.state.user.bio}</h3>
+            <h3 className="description">Bio: {this.state.user.bio}</h3>
             <h3>Contact Details: {this.state.user.email}</h3>
             {console.log(this.state.user)}
             { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
