@@ -27,7 +27,7 @@ class Homepage extends React.Component {
         <div className="row">
           <div className="page-banner col-md-12">
             <h1>Welcome to Ho Ho Hosts! </h1>
-            { !Auth.isAuthenticated() &&  <h2><em>Please login or register to search for dinners or guests for your Christmas dinner</em></h2>}
+            { !Auth.isAuthenticated() &&  <h2><em>Please login or register to search for dinners, or guests for your Christmas dinner</em></h2>}
             { !Auth.isAuthenticated() && <img src="https://www.englishandculture.com/hs-fs/hub/98462/file-984264747-jpg/images/how_to_talk_about_your_family_in_english.jpg?t=1433880746000" className="image-hp" />}
             { !Auth.isAuthenticated() && <img src="http://xmasblor.com/wp-content/uploads/2015/10/christmasweddingfood-14462908568gnk4.jpg" className="image-hp" />}
 

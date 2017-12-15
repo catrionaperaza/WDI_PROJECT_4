@@ -41,11 +41,11 @@ class DinnersIndex extends React.Component {
           </div>
           <h1>Dinner Events</h1>
           <div className="search">
-            <h4>Where do you want to look for a dinner event?</h4>
+            <h3>Where do you want to look for a dinner event?</h3>
             <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           </div>
           <div className="slider">
-            <h4>How far are you willing to travel? Adjust the radius slider here: </h4>
+            <h3>How far are you willing to travel? Adjust the radius slider here: </h3>
             <br></br>
             <Slider updateRadius={this.updateRadius} value={this.state.radius} />
           </div>
@@ -57,8 +57,8 @@ class DinnersIndex extends React.Component {
               <div key={dinner.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
                 <Link to={`/dinners/${dinner.id}`}>
                   <h2>Event: {dinner.shortTitle}</h2></Link>
-                {dinner.createdBy && <h4>Host: {dinner.createdBy.name}</h4>}
-                <h4>Number of places: {dinner.avail_places}</h4>
+                {dinner.createdBy && <h3>Host: {dinner.createdBy.name}</h3>}
+                <h3>Number of places: {dinner.avail_places}</h3>
                 <p>Description: {dinner.shortDescription}</p>
               </div>
             );

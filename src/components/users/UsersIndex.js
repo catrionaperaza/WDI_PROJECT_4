@@ -38,11 +38,11 @@ class UsersIndex extends React.Component {
         <div className="row">
           <h1>Guests and Hosts</h1>
           <div className="search">
-            <h4>Where do you want to look for guests?</h4>
+            <h3>Where do you want to look for guests?</h3>
             <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           </div>
           <div className="slider">
-            <h4>Guests proximity to your dinner event. Adjust the radius slider here: </h4>
+            <h3>Guests proximity to your dinner event. Adjust the radius slider here: </h3>
             <br></br>
             <Slider updateRadius={this.updateRadius} value={this.state.radius} />
           </div>
@@ -53,8 +53,8 @@ class UsersIndex extends React.Component {
                 { Auth.isAuthenticated() &&
                 <Link to={`/users/${user.id}`}>
                   <h2>Name: {user.name}</h2></Link> }
-                <h4>Location: {user.formatted_address}</h4>
-                <h4>Attendee or Host: {user.guestOrHost}</h4>
+                <h3>Location: {user.formatted_address}</h3>
+                <h3>Guest or Host: {user.guestOrHost}</h3>
               </div>
             );
           })}
