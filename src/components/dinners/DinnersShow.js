@@ -93,29 +93,31 @@ class DinnersShow extends React.Component {
           </button>}
         </div>
 
-        <div className="row">
+        {/* <div className="row">
           <h3>Comments:</h3>
           { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
             return (
               <div key={guest.id} >
                 <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
-                <img src={guest.image} className="img-responsive" />
+
+              </div>
+            );
+          })}
+        </div> */}
+
+        <div className="col-md-8">
+          { this.state.dinner.comments && this.state.dinner.comments.map(comment => {
+            return (
+              <div key={comment.id}>
+                <h3>Comments:</h3>
+                <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
+                <img src={comment.createdBy.image} className="image-hp" />
+                <p>{ comment.body }</p>
+                <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
               </div>
             );
           })}
         </div>
-        { this.state.dinner.comments &&
-      <div className="col-md-8">
-        { this.state.dinner.comments.map(comment => {
-          return (
-            <div key={comment.id}>
-              <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
-              <p>{ comment.body }</p>
-              <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
-            </div>
-          );
-        })}
-      </div>}
         <div className="row">
           <div className="col-md-12">
             <DinnerCommentForm
