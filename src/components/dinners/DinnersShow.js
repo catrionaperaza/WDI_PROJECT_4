@@ -62,7 +62,7 @@ class DinnersShow extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="image-tile col-md-6">
+          <div className="image-tile col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <img src={this.state.dinner.image} className="img-responsive" />
           </div>
           <div className="col-md-6">
@@ -85,6 +85,20 @@ class DinnersShow extends React.Component {
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
             </button>}
           </div>
+        </div>
+        <div className="row">
+          <h4>Guests:</h4> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            return(
+              <div key={guest.id} >
+                <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+              </div>
+            );
+          })}
+          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
+          </Link>}
+          {' '}
+          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
+          </button>}
         </div>
 
         <div className="row">
@@ -111,12 +125,14 @@ class DinnersShow extends React.Component {
               })}
             </div>}
         </div>
-        <div className="col-md-12">
-          <DinnerCommentForm
-            comment={this.state.comment}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
+        <div className="row">
+          <div className="col-md-12">
+            <DinnerCommentForm
+              comment={this.state.comment}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
         </div>
       </div>
     );
