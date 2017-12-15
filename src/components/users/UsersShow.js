@@ -40,22 +40,21 @@ class UsersShow extends React.Component {
             <img src={this.state.user.image} className="img-responsive" />
           </div>
           <div className="col-md-6">
-            <h2>Name of {this.state.user.guestOrHost}: {this.state.user.name}</h2>
-            <h3>Location: {this.state.user.formatted_address}</h3>
-            <h3 className="description">Bio: {this.state.user.bio}</h3>
-            <h3>Contact Details: {this.state.user.email}</h3>
-            {console.log(this.state.user)}
+            <h3>{this.state.user.guestOrHost}: <span>{this.state.user.name}</span></h3>
+            <h3>Location: <span>{this.state.user.formatted_address}</span></h3>
+            <h3>Bio: <span>{this.state.user.bio}</span></h3>
+            <h3>Contact Details: <span>{this.state.user.email}</span></h3>
             { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
               return(
                 <div key={dinner.id} >
-                  <h3><Link to={`/dinners/${dinner.id}`}>Come to my dinner:<strong> {dinner.title}</strong></Link></h3>
+                  <h3><Link to={`/dinners/${dinner.id}`}>Come to my dinner:<strong><span> {dinner.title}</span></strong></Link></h3>
                 </div>
               );
             })}
             { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
               return(
                 <div key={dinner.id} >
-                  <h3><Link to={`/dinners/${dinner.id}`}>Dinner I am Attending:<strong> {dinner.title}</strong></Link></h3>
+                  <h3><Link to={`/dinners/${dinner.id}`}>Dinner I am Attending:<strong><span> {dinner.title}</span></strong></Link></h3>
                 </div>
               );
             })}

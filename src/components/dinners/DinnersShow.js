@@ -66,16 +66,16 @@ class DinnersShow extends React.Component {
             <img src={this.state.dinner.image} className="img-responsive" />
           </div>
           <div className="col-md-6">
-            <h2>Event: {this.state.dinner.title}</h2>
-            <h3>Number of places: {this.state.dinner.avail_places}</h3>
-            <h3 className="description">Description: {this.state.dinner.description}</h3>
-            {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
-            { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="host-button">Go to the host profile
-            </Link>}
-            <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            <h3><span>{this.state.dinner.title}</span></h3>
+            <h3>Number of places: <span>{this.state.dinner.avail_places}</span></h3>
+            <h3>Description: <span>{this.state.dinner.description}</span></h3>
+            <h3>Host: </h3> {this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`}><h3><span>{this.state.dinner.createdBy.name}</span></h3></Link>}
+            {/* { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="host-button">Go to the host profile
+            </Link>} */}
+            <h3>Guests: </h3>{ this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return(
                 <div key={guest.id} >
-                  <h3><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h3>
+                  <h3><Link to={`/users/${guest.id}`}><span> {guest.name}</span></Link></h3>
                 </div>
               );
             })}
@@ -89,11 +89,11 @@ class DinnersShow extends React.Component {
 
         <div className="row">
           <div className="image-tile col-md-4">
-            <h4>Comments:</h4>
+            <h3>Comments:</h3>
             { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return (
                 <div key={guest.id} >
-                  <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+                  <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
                 </div>
               );
             })}
@@ -103,9 +103,9 @@ class DinnersShow extends React.Component {
               { this.state.dinner.comments.map(comment => {
                 return (
                   <div key={comment.id}>
-                    <h6>Comment by: {comment.createdBy.name} </h6>
+                    <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
                     <p>{ comment.body }</p>
-                    <h6>Comment created at: { comment.createdAt }</h6>
+                    <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
                   </div>
                 );
               })}
