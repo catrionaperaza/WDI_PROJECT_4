@@ -1,6 +1,7 @@
 const Dinner = require('../models/dinner');
 
 function commentCreate(req, res, next) {
+  console.log(res.body);
 
   req.body.createdBy = req.currentUser;
 
@@ -10,8 +11,12 @@ function commentCreate(req, res, next) {
     .then(dinner => {
       if (!dinner) return res.status(404).json({ message: 'Dinner not found.' });
       dinner.comments.push(req.body);
-      dinner.save();
-
+      return dinner.save();
+    })
+    .then(dinner => {
+      return Dinner.populate(dinner, { path: 'comments.createdBy' });
+    })
+    .then(dinner => {
       return res.status(201).json(dinner);
     })
     .catch(next);
