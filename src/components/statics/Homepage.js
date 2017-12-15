@@ -27,38 +27,46 @@ class Homepage extends React.Component {
         <div className="row">
           <div className="page-banner col-md-12">
             <h1>Welcome to Ho Ho Hosts! </h1>
-            { !Auth.isAuthenticated() &&  <h2><em>Please login or register to search for dinners or guests for your Christmas dinner</em></h2>}
+            { !Auth.isAuthenticated() &&  <h2><em>Please login or register to search for dinners, or guests for your Christmas dinner</em></h2>}
             { !Auth.isAuthenticated() && <img src="https://www.englishandculture.com/hs-fs/hub/98462/file-984264747-jpg/images/how_to_talk_about_your_family_in_english.jpg?t=1433880746000" className="image-hp" />}
             { !Auth.isAuthenticated() && <img src="http://xmasblor.com/wp-content/uploads/2015/10/christmasweddingfood-14462908568gnk4.jpg" className="image-hp" />}
-          </div>
-        </div>
 
-        <div className="container">
-          <div className="row">
-            <div className="page-banner col-md-12">
-              { Auth.isAuthenticated() && <h2 className="clickIcons"><em>Click on icons to search dinners or guests</em></h2>}
-              { Auth.isAuthenticated() && <Link to={'/dinners'}>Dinners<img src="./assets/dinnersicon.png" className="img-responsive icons" /></Link>}
-              { Auth.isAuthenticated() && <Link to={'/users'}>Guests<img src="./assets/usersicon.png" className="img-responsive icons" /></Link>}
+            <div className="container">
+              <div className="row">
+                <div className="page-banner col-md-12">
+                  { Auth.isAuthenticated() && <h2 className="clickIcons">Click on icons to search dinners or guests</h2>}
+                  { Auth.isAuthenticated() && <Link to={'/dinners'}><img src="./assets/dinnersicon.png" className="img-responsive icons" /></Link>}
+                  { Auth.isAuthenticated() && <Link to={'/users'}><img src="./assets/usersicon.png" className="img-responsive icons" /></Link>}
+
+
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-lg-12">
+                        { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
+                          return(
+                            <div key={dinner.id} >
+                              { Auth.isAuthenticated() && <h2>{this.state.user.name}, you are hosting: {dinner.title} </h2>}
+                              {' '}
+                              { Auth.isAuthenticated() && <Link to={`/dinners/${dinner.id}`}><img src={dinner.image} className="image-hp" /></Link>}
+                            </div>
+                          );
+                        })
+                        }
+                        { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
+                          return(
+                            <div key={dinner.id} >
+                              { Auth.isAuthenticated() && <h2>{this.state.user.name}, you are attending: {dinner.title} </h2>}
+                              { Auth.isAuthenticated() && <Link to={`/dinners/${dinner.id}`}><img src={dinner.image}  className="image-hp" /></Link>}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
-            return(
-              <div key={dinner.id} >
-                { Auth.isAuthenticated() && <h2>Dinners I am hosting: {dinner.title} </h2>}
-                { Auth.isAuthenticated() && <Link to={`/dinners/${dinner.id}`}><img src={dinner.image} className="image-hp" /></Link>}
-              </div>
-            );
-          })
-          }
-
-          { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
-            return(
-              <div key={dinner.id} >
-                { Auth.isAuthenticated() && <h2><Link to={`/dinners/${dinner.id}`}><strong>Dinners I am Attending: {dinner.title}<img src={dinner.image}  className="image-hp" /></strong></Link></h2>}
-              </div>
-            );
-          })}
         </div>
       </div>
     );

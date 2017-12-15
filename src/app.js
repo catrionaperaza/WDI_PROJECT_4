@@ -22,8 +22,10 @@ class App extends React.Component {
           <header></header>
           <main>
             <Routes />
-            <Navbar />
           </main>
+          <footer>
+            <Navbar />
+          </footer>
         </div>
       </Router>
     );

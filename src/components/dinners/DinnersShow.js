@@ -70,12 +70,12 @@ class DinnersShow extends React.Component {
             <p>Number of places: {this.state.dinner.avail_places}</p>
             <p>Description: {this.state.dinner.description}</p>
             {this.state.dinner.createdBy && <h3>Host: {this.state.dinner.createdBy.name}</h3>}
-            { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="standard-button">Go to the host profile
+            { this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`} className="host-button">Go to the host profile
             </Link>}
-            <h4>Guests:</h4> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
+            <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
               return(
                 <div key={guest.id} >
-                  <h4><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h4>
+                  <h3><Link to={`/users/${guest.id}`}><strong> {guest.name}</strong></Link></h3>
                 </div>
               );
             })}

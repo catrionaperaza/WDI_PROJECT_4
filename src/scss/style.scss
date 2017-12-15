@@ -8,6 +8,14 @@ body {
   color: #6a737b;
 }
 
+p {
+  font-size: 20px; 
+}
+
+footer {
+  padding: 45px;
+}
+
 header {
   height: 10px;
   position: relative;
@@ -47,6 +55,10 @@ h2 {
   }
 }
 
+.clickIcons {
+  text-align:center;
+}
+
 hr {
   border: 0;
   height: 2px;
@@ -55,9 +67,6 @@ hr {
 }
 
 .image-tile {
-
-  // max-height: 300px;
-
   img {
     width: 100%;
     border-radius: 2px;
@@ -91,11 +100,33 @@ button, .main-button, .standard-button, {
   &:hover, &:focus {
     color: #fff;
     background: darken(#6a737b, 10%);
-
-    .loggedout {
-      background: red;
-    }
   }
+}
+
+.host-button {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+  display: inline-block;
+
+  background: #6a737b;
+  border: 1px solid lighten(#6a737b, 10%);
+  border-radius: 5px;
+  margin-right: 10px;
+  max-width: 300px;
+
+  &:hover, &:focus {
+    color: #fff;
+    background: darken(#6a737b, 10%);
+  }
+}
+
+.loggedout {
+  margin: 20px;
 }
 
 .main-button {
@@ -213,14 +244,9 @@ padding: 10px;
 margin: 100px;
 }
 
-.hp {
-
-}
-
 .image-hp {
   display:inline-block;
-  float: left;
-  padding: 20px;
+  padding: 30px;
   margin: 30px;
   border: 5px;
   border-color: #F16664;
@@ -231,6 +257,15 @@ margin: 100px;
   height: 350px;
 }
 
-.clickIcons {
+.image-li {
+  display:inline-block;
+  float: left;
+  width: 50%;
+  // padding: 30px;
+  // margin-left: 100px;
+  border: 5px;
+  border-color: #F16664;
+  border-style: solid;
+  border-radius: 5px;
   text-align: center;
 }
