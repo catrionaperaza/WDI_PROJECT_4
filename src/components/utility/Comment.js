@@ -14,13 +14,12 @@ class Comment extends React.Component {
 
   componentDidMount() {
     Axios
-      .get(/api/dinners/${this.props.match.params.id}
+      .get(`/api/dinners/${this.props.match.params.id}`)
       .then(res => this.setState({ comment: res.data }))
       .catch(err => console.log(err));
 
-      const comment = Object.assign({}, this.state.comment, { comments: this.state.chat.comments.concat(newComment)});
-      this.setState({ comment: { body: '' } });
-    }
+    const newComment = Object.assign({}, this.state.comment, { comments: this.state.chat.comments.concat(newComment)});
+    this.setState({ comment: { body: '' } });
   }
 
   handleCommentChange = ({ target: { value }}) => {
@@ -31,7 +30,7 @@ class Comment extends React.Component {
     e.preventDefault();
 
     Axios
-      .post(`/dinners/:id/comments`, this.state.comment, {
+      .post('/api/dinners/:id/comments', this.state.comment, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
       .catch(err => console.log(err));
