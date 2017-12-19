@@ -67,6 +67,7 @@ class DinnersShow extends React.Component {
           <div className="col-md-6">
             <h3><span>{this.state.dinner.title}</span></h3>
             <h3>Number of places: <span>{this.state.dinner.avail_places}</span></h3>
+            <h3>Location: <span>{this.state.dinner.formatted_address}</span></h3>
             <h3>Description: <span>{this.state.dinner.description}</span></h3>
             <h3>Host: </h3> {this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`}><h3><span>{this.state.dinner.createdBy.username}</span></h3></Link>}
 
