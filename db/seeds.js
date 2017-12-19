@@ -14,7 +14,7 @@ Dinner.collection.drop();
 
 User
   .create([{
-    name: 'Victor Peraza',
+    username: 'Victor Peraza',
     formatted_address: 'Wimbledon Station',
     email: 'VicPeraza@gmail.com',
     password: 'password',
@@ -24,7 +24,7 @@ User
     bio: 'Hi! My name is Victor, and I am a web developer living in Wimbledon. My family do not live in the UK, they live back home in Peru and although I usually travel back to see them, this year I will not manage to. I heard about this programme and thought that it could be a good experience for me and maybe I can bring some more stories and laughter to the table. Please let me know if you have any questions!',
     guestOrHost: 'Guest'
   }, {
-    name: 'Hermes Torres',
+    username: 'Hermes Torres',
     formatted_address: 'Aldgate East',
     email: 'TorrHer@gmail.com',
     password: 'password',
@@ -34,7 +34,7 @@ User
     bio: 'Hi, Hermes here, I am looking for a nice family or group of friends to visit at Christmas. Happy to bring a dessert with me, from my home in Argentina! Hope to meet you soon!',
     guestOrHost: 'Guest'
   }, {
-    name: 'Carolina Rodriguez',
+    username: 'Carolina Rodriguez',
     formatted_address: 'Clapham Junction',
     email: 'Caroisbest@gmail.com',
     password: 'password',
@@ -44,7 +44,7 @@ User
     bio: 'Hello! I am Carolina. I would like to come for dinner with some nice people this Christmas. It is my first year in the UK and I do not know many people here, and the friends I have are all with their families. I would like to make some Venezuelan food for my host family if they wanted. My interests are meeting friends, writing, reading and I work as a librarian. Thanks for reading!',
     guestOrHost: 'Guest'
   }, {
-    name: 'Catriona Odwyer',
+    username: 'Catriona Odwyer',
     formatted_address: 'Wimbledon',
     email: 'Catod@gmail.com',
     password: 'password',
@@ -54,7 +54,7 @@ User
     bio: 'Hello! I am Catriona. I am looking for some guests to join myself and my family for Christmas this year! Please check out my dinner page for details!',
     guestOrHost: 'Host'
   }, {
-    name: 'John Roberts',
+    username: 'John Roberts',
     formatted_address: 'Canary Wharf station',
     email: 'Johnboy@gmail.com',
     password: 'password',
@@ -64,7 +64,7 @@ User
     bio: 'Hi I\'m John! I would love to have some extra people to join my dinner this year, I like to have all my friends over and have a fun evening! Please get in touch if this sounds appealing! ',
     guestOrHost: 'Host'
   }, {
-    name: 'Katie Clarkson',
+    username: 'Katie Clarkson',
     formatted_address: 'Clapham Common',
     email: 'ktclarky@gmail.com',
     password: 'password',
