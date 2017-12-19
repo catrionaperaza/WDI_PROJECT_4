@@ -41,7 +41,7 @@ class UsersShow extends React.Component {
           </div>
 
           <div className="col-md-6">
-            <h3>{this.state.user.guestOrHost}: <span>{this.state.user.name}</span></h3>
+            <h3>{this.state.user.guestOrHost}: <span>{this.state.user.username}</span></h3>
             <h3>Location: <span>{this.state.user.formatted_address}</span></h3>
             <h3>Bio: <span>{this.state.user.bio}</span></h3>
             <h3>Contact Details: <span>{this.state.user.email}</span></h3>

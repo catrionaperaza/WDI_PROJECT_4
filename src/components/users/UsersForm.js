@@ -11,10 +11,10 @@ function UsersForm ({ handleSubmit, handleChange, handleLocationChange, user }) 
           <input
             type="text"
             className="form-control"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            value={user.name}
+            id="username"
+            name="username"
+            placeholder="Your username"
+            value={user.username}
             onChange={handleChange}
           />
         </div>

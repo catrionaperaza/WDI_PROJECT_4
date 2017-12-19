@@ -5,7 +5,7 @@ const MultiSelect = ({options, handleSelectChange, removeSelected, value}) => {
 
   return (
     <Select
-      name="form-field-name"
+      username="form-field-username"
       removeSelected={removeSelected}
       onChange={handleSelectChange}
       options={options}

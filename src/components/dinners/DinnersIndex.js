@@ -57,7 +57,7 @@ class DinnersIndex extends React.Component {
               <div key={dinner.id} className="image-tile col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <Link to={`/dinners/${dinner.id}`}>
                   <h2>Event: {dinner.shortTitle}</h2></Link>
-                {dinner.createdBy && <h3>Host: {dinner.createdBy.name}</h3>}
+                {dinner.createdBy && <h3>Host: {dinner.createdBy.username}</h3>}
                 <h3>Number of places: {dinner.avail_places}</h3>
                 <p>Description: {dinner.shortDescription}</p>
               </div>

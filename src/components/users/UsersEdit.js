@@ -7,7 +7,7 @@ import UsersForm from './UsersForm';
 class UsersEdit extends React.Component {
   state = {
     user: {
-      name: '',
+      username: '',
       formatted_address: '',
       email: '',
       image: '',
@@ -41,8 +41,8 @@ class UsersEdit extends React.Component {
       .catch(err => console.log(err));
   }
 
-  handleLocationChange = (name, formatted_address, location) => {
-    const user = Object.assign({}, this.state.user, { name, formatted_address, location });
+  handleLocationChange = (username, formatted_address, location) => {
+    const user = Object.assign({}, this.state.user, { username, formatted_address, location });
     this.setState({ user });
   }
 

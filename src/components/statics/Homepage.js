@@ -54,7 +54,7 @@ class Homepage extends React.Component {
             { this.state.user.dinnersCreated && this.state.user.dinnersCreated.map(dinner => {
               return(
                 <div key={dinner.id} >
-                  { Auth.isAuthenticated() && <h2>{this.state.user.name}, you are hosting: {dinner.title} </h2>}
+                  { Auth.isAuthenticated() && <h2>{this.state.user.username}, you are hosting: {dinner.title} </h2>}
                   { Auth.isAuthenticated() && <Link to={`/dinners/${dinner.id}`}><img src={dinner.image} className="image-hp" /></Link>}
                 </div>
               );
@@ -65,7 +65,7 @@ class Homepage extends React.Component {
             { this.state.user.dinnersAttending && this.state.user.dinnersAttending.map(dinner => {
               return(
                 <div key={dinner.id} >
-                  { Auth.isAuthenticated() && <h2>{this.state.user.name}, you are attending: {dinner.title} </h2>}
+                  { Auth.isAuthenticated() && <h2>{this.state.user.username}, you are attending: {dinner.title} </h2>}
                   { Auth.isAuthenticated() && <Link to={`/dinners/${dinner.id}`}><img src={dinner.image}  className="image-hp" /></Link>}
                 </div>
               );

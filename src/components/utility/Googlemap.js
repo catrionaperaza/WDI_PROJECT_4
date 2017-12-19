@@ -67,11 +67,11 @@ class GoogleMap extends React.Component {
 
         const content = this.props.markerType === 'dinner' ? `
           <a href=${`/dinners/${data.id}`} />
-            <p>${data.title}, hosted by ${data.createdBy.name}</p>
+            <p>${data.title}, hosted by ${data.createdBy.username}</p>
           </a>
         ` : `
         <a href=${`/users/${data.id}`} />
-          <p>${data.name}</p>
+          <p>${data.username}</p>
         </a>
         `;
 

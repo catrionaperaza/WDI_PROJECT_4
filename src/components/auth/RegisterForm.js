@@ -7,10 +7,10 @@ const RegisterForm = ({ handleChange, handleSubmit, handleLocationChange, user }
       <div className="form-group">
         <input
           type="text"
-          name="name"
-          placeholder="Your Name"
+          name="username"
+          placeholder="Your Username"
           onChange={handleChange}
-          value={user.name}
+          value={user.username}
           className="form-control"
         />
       </div>

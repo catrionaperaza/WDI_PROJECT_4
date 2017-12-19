@@ -27,7 +27,7 @@ class DinnersNew extends React.Component {
       })
       .then(res => {
         const guests = res.data.map(guest => {
-          return { label: guest.name, value: guest.id };
+          return { label: guest.username, value: guest.id };
         });
         this.setState({guests});
       })
@@ -39,8 +39,8 @@ class DinnersNew extends React.Component {
     this.setState({ dinner });
   }
 
-  handleLocationChange = (name, formatted_address, location) => {
-    const dinner = Object.assign({}, this.state.dinner, { name, formatted_address, location });
+  handleLocationChange = (username, formatted_address, location) => {
+    const dinner = Object.assign({}, this.state.dinner, { username, formatted_address, location });
     this.setState({ dinner });
   }
 

@@ -46,7 +46,6 @@ class DinnersShow extends React.Component {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
       })
       .then(res => this.setState({ dinner: res.data, comment: { body: '' } }), () => {
-        console.log(this.state);
       })//ref to new state with historical comments
       .catch(err=> console.log(err));
   }
@@ -69,7 +68,7 @@ class DinnersShow extends React.Component {
             <h3><span>{this.state.dinner.title}</span></h3>
             <h3>Number of places: <span>{this.state.dinner.avail_places}</span></h3>
             <h3>Description: <span>{this.state.dinner.description}</span></h3>
-            <h3>Host: </h3> {this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`}><h3><span>{this.state.dinner.createdBy.name}</span></h3></Link>}
+            <h3>Host: </h3> {this.state.dinner.createdBy && <Link to={`/users/${this.state.dinner.createdBy.id}`}><h3><span>{this.state.dinner.createdBy.username}</span></h3></Link>}
 
             { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
             </Link>}
@@ -82,7 +81,7 @@ class DinnersShow extends React.Component {
           <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
             return(
               <div key={guest.id} >
-                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
+                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.username}</span></strong></Link></h3>
               </div>
             );
           })}
@@ -110,7 +109,7 @@ class DinnersShow extends React.Component {
             return (
               <div key={comment.id}>
                 <h3>Comments:</h3>
-                <h4>Comment by: <span>{comment.createdBy.name}</span></h4>
+                <h4>Comment by: <span>{comment.createdBy.username}</span></h4>
                 <img src={comment.createdBy.image} className="image-hp" />
                 <p>{ comment.body }</p>
                 <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
