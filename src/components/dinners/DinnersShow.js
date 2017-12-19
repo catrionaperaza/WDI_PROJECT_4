@@ -24,14 +24,14 @@ class DinnersShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-        deleteDinner = () => {
-          Axios
-            .delete(`/api/dinners/${this.props.match.params.id}`, {
-              headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
-            })
-            .then(() => this.props.history.push('/'))
-            .catch(err => console.log(err));
-        }
+  deleteDinner = () => {
+    Axios
+      .delete(`/api/dinners/${this.props.match.params.id}`, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+      })
+      .then(() => this.props.history.push('/'))
+      .catch(err => console.log(err));
+  }
 
   handleChange = ({ target: { name, value }}) => {
     const comment = Object.assign({}, this.state.comment, { [name]: value });
@@ -82,49 +82,32 @@ class DinnersShow extends React.Component {
           <h3>Guests:</h3> { this.state.dinner.guests && this.state.dinner.guests.map(guest => {
             return(
               <div key={guest.id} >
-                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.username}</span></strong></Link></h3>
+                <h3><Link to={`/users/${guest.id}`}><strong><span>   {guest.username}</span></strong></Link></h3>
               </div>
             );
           })}
-          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <Link to={`/dinners/${this.state.dinner.id}/edit`} className="standard-button">Edit your dinner
-          </Link>}
-          {' '}
-          { this.state.dinner.createdBy && Auth.isAuthenticated() && Auth.getPayload().userId === this.state.dinner.createdBy.id && <button className="delete-button" onClick={this.deleteDinner}>Delete your dinner
-          </button>}
-        </div>
 
-        {/* <div className="row">
-          <h3>Comments:</h3>
-          { this.state.dinner && this.state.dinner.guests && this.state.dinner.guests.map(guest => {
-            return (
-              <div key={guest.id} >
-                <h3><Link to={`/users/${guest.id}`}><strong><span> {guest.name}</span></strong></Link></h3>
-
-              </div>
-            );
-          })}
-        </div> */}
-
-        <div className="col-md-8">
-          { this.state.dinner.comments && this.state.dinner.comments.map(comment => {
-            return (
-              <div key={comment.id}>
-                <h3>Comments:</h3>
-                <h4>Comment by: <span>{comment.createdBy.username}</span></h4>
-                <img src={comment.createdBy.image} className="image-hp" />
-                <p>{ comment.body }</p>
-                <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
-              </div>
-            );
-          })}
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <DinnerCommentForm
-              comment={this.state.comment}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-            />
+          <div className="col-md-8">
+            { this.state.dinner.comments && this.state.dinner.comments.map(comment => {
+              return (
+                <div key={comment.id}>
+                  <h3>Comments:</h3>
+                  <h4>Comment by: <span>{comment.createdBy.username}</span></h4>
+                  <img src={comment.createdBy.image} className="image-hp" />
+                  <p>{ comment.body }</p>
+                  <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
+                </div>
+              );
+            })}
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <DinnerCommentForm
+                comment={this.state.comment}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+              />
+            </div>
           </div>
         </div>
       </div>
