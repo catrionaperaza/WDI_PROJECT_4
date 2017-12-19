@@ -92,7 +92,7 @@ class DinnersShow extends React.Component {
               return (
                 <div key={comment.id}>
                   <h3>Comments:</h3>
-                  <h4>Comment by: <span>{comment.createdBy.username}</span></h4>
+                  <h4>Comment by: <span>{comment.createdBy.username}<Link to={`/users/${comment.createdBy.id}`}></Link></span></h4>
                   <img src={comment.createdBy.image} className="image-hp" />
                   <p>{ comment.body }</p>
                   <h4>Comment created at: <span>{ comment.createdAt }</span></h4>
