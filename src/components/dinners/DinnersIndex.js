@@ -45,7 +45,7 @@ class DinnersIndex extends React.Component {
             <SearchBox handleUserMarkerData={this.handleUserMarkerData}/>
           </div>
           <div className="slider">
-            <h3>How far are you willing to travel? Adjust the radius slider here: </h3>
+            <h3>How far are you willing to travel? Adjust the radius slider here : </h3>
             <br></br>
             <Slider updateRadius={this.updateRadius} value={this.state.radius} />
           </div>
