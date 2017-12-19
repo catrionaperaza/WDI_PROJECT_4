@@ -19,7 +19,6 @@ class GoogleMap extends React.Component {
       center: this.props.center || { lat: 51.515419, lng: -0.141099 },
       zoom: 12,
       clickableIcons: false,
-      // disableDefaultUI: true,
       styles: mapStyles
     });
 
